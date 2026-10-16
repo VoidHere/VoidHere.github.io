@@ -64,6 +64,10 @@ git add -A; git commit -m "…"   # commit the regenerated files
 git push                        # Pages rebuilds automatically in ~1 minute
 ```
 
+URLs are extensionless (`/merge-pdf`): GitHub Pages serves `merge-pdf.html`
+for those paths, and every internal link, canonical tag and sitemap entry uses
+the clean form. No redirects or server config needed.
+
 `SITE_URL` at the top of `build/generate.py` holds the public address used by
 canonical tags, Open Graph and the sitemap. When the site moves to digitpdf.io:
 
