@@ -20,9 +20,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BUILD = ROOT / "build"
 
-# The public address of the site. Switched to the live GitHub Pages URL at
-# deploy time; change it in one place here (and re-run) if the domain moves.
-SITE_URL = "https://digitpdf.io"
+# The public address of the site. Currently the free GitHub Pages address;
+# change it here (and re-run) when digitpdf.io is attached.
+SITE_URL = "https://voidhere.github.io"
 
 CATS = {
     "pdf":   {"name": "PDF",            "icon": "i-pdf",
