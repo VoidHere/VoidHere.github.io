@@ -1,0 +1,33 @@
+name: Deploy to Cloudflare Pages
+
+# Auto-deploys the site to https://digitpdf.pages.dev on every push to main.
+# The GitHub Pages copy (https://voidhere.github.io) is also updated by the
+# built-in Pages build — it stays live as the ffmpeg engine origin.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Package pages.dev output
+        run: bash build/package-cf.sh
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 23dfac4adb6119aca1782946d1a5f757
+          command: pages deploy dist --project-name=digitpdf --branch=main --commit-dirty=true
