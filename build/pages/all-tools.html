@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>All {{TOOLCOUNT}} tools — DigitPDF</title>
+<meta name="description" content="The complete list of DigitPDF tools: PDF, image, video, audio, text and everyday utilities. All free, all running in your browser, nothing uploaded.">
+<link rel="canonical" href="{{SITEURL}}/all-tools.html">
+<meta property="og:site_name" content="DigitPDF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="All {{TOOLCOUNT}} tools — DigitPDF">
+<meta property="og:description" content="The complete list of DigitPDF tools: PDF, image, video, audio, text and everyday utilities. All free, all running in your browser, nothing uploaded.">
+<meta property="og:url" content="{{SITEURL}}/all-tools.html">
+<meta property="og:image" content="{{SITEURL}}/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="All {{TOOLCOUNT}} tools — DigitPDF">
+<meta name="twitter:description" content="The complete list of DigitPDF tools: PDF, image, video, audio, text and everyday utilities. All free, all running in your browser, nothing uploaded.">
+<meta name="twitter:image" content="{{SITEURL}}/og-image.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/vendor/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/vendor/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/vendor/fonts/fonts.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<a class="skip" href="#all">Skip to the list</a>
+{{HEADER}}
+
+<main class="wrap" id="all">
+  <section class="tool-head">
+    <h1>The whole toolbox</h1>
+    <p class="dek">Every tool on the site, one page, nothing hidden behind a plan badge. Type to filter — the search works offline, like everything else here.</p>
+  </section>
+
+  <div class="util-bar">
+    <input class="input" id="filter" type="search" placeholder="Filter — try “pdf”, “video”, “qr”…" aria-label="Filter tools">
+    <span class="label" id="fcount">{{TOOLCOUNT}} tools</span>
+  </div>
+
+  <!--@TOOLS:all-->
+</main>
+
+{{FOOTER}}
+<script src="/js/core.js" defer></script>
+<script>
+addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("filter");
+  const countEl = document.getElementById("fcount");
+  const cards = Array.from(document.querySelectorAll(".tcard"));
+  const sections = Array.from(document.querySelectorAll("main section.section"));
+  input.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    let shown = 0;
+    for (const c of cards) {
+      const hit = !q || (c.dataset.name || "").includes(q);
+      c.style.display = hit ? "" : "none";
+      if (hit) shown++;
+    }
+    for (const s of sections) {
+      if (!s.querySelector(".tcard")) continue;
+      const any = Array.from(s.querySelectorAll(".tcard")).some(c => c.style.display !== "none");
+      s.style.display = any ? "" : "none";
+    }
+    countEl.textContent = shown + (shown === 1 ? " tool" : " tools");
+  });
+  addEventListener("keydown", (e) => {
+    if (e.key === "/" && document.activeElement !== input) { e.preventDefault(); input.focus(); }
+  });
+});
+</script>
+</body>
+</html>

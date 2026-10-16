@@ -1,0 +1,774 @@
+[
+ {
+  "slug": "json-formatter",
+  "title": "JSON Formatter",
+  "h1": "JSON formatter & validator",
+  "dek": "Paste messy JSON, get it neat — with a precise error message and line number when it's broken.",
+  "meta": "Format, validate and minify JSON in your browser. Clear error messages with line numbers. Free, private, nothing pasted is uploaded.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Paste your JSON",
+    "p": "Or a piece of it — the tool tells you where the syntax breaks, line included."
+   },
+   {
+    "b": "Format or minify",
+    "p": "Two spaces, four spaces or tabs for readability; one line for feeding to something else."
+   },
+   {
+    "b": "Copy or download",
+    "p": "Copy button for the clipboard, or take it as a .json file."
+   }
+  ],
+  "faq": [
+   {
+    "q": "What counts as invalid JSON?",
+    "a": "Trailing commas, single quotes, unquoted keys, comments — the things that make JSON look like JavaScript but aren't. The error message points at the line and character."
+   },
+   {
+    "q": "Can it handle large files?",
+    "a": "Very large — megabytes of JSON format in well under a second since it's a genuine parser, not a regex trick."
+   }
+  ],
+  "related": [
+   "csv-to-json",
+   "json-to-csv",
+   "excel-converter",
+   "html-to-markdown"
+  ]
+ },
+ {
+  "slug": "csv-to-json",
+  "title": "CSV to JSON",
+  "h1": "Convert CSV to JSON",
+  "dek": "Headers become keys, rows become objects — with a header toggle for files that are all data.",
+  "meta": "Convert CSV to JSON in your browser, with header handling and quote-safe parsing. Copy or download the result. Free, no uploads.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Drop a CSV or paste it",
+    "p": "Quoted fields, commas inside quotes, whichever line ending — handled properly."
+   },
+   {
+    "b": "Say how it's built",
+    "p": "First row as headers (the usual), or array-of-arrays for raw data."
+   },
+   {
+    "b": "Take the JSON",
+    "p": "Pretty-printed by default, one line if you switch it."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Numbers — string or number?",
+    "a": "Numbers that look like numbers become numbers; everything else stays a string. Leading zeros are kept as strings, because they mean something."
+   },
+   {
+    "q": "What about really big CSVs?",
+    "a": "Tens of MB are fine. Beyond that your laptop starts doing the hard work, not the tool — but it will get there."
+   }
+  ],
+  "related": [
+   "json-to-csv",
+   "excel-converter",
+   "json-formatter",
+   "csv-to-excel"
+  ]
+ },
+ {
+  "slug": "json-to-csv",
+  "title": "JSON to CSV",
+  "h1": "Convert JSON to CSV",
+  "dek": "An array of objects becomes a spreadsheet — columns unioned across every row, nothing quietly dropped.",
+  "meta": "Convert JSON arrays to CSV files in your browser. Columns are unioned across all objects so nothing is lost. Free and private.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Paste your JSON",
+    "p": "An array of objects, or an object with arrays inside."
+   },
+   {
+    "b": "Check the preview",
+    "p": "The table preview shows exactly what the CSV will contain."
+   },
+   {
+    "b": "Download the CSV",
+    "p": "Ready for Excel, Sheets or a database import."
+   }
+  ],
+  "faq": [
+   {
+    "q": "What if objects have different keys?",
+    "a": "The CSV gets the union of all keys, so no column disappears just because the first row lacked it."
+   },
+   {
+    "q": "Commas and quotes inside values?",
+    "a": "Everything is properly quoted per CSV rules — the file won't shred itself in Excel."
+   }
+  ],
+  "related": [
+   "csv-to-json",
+   "excel-converter",
+   "json-formatter",
+   "csv-to-excel"
+  ]
+ },
+ {
+  "slug": "excel-converter",
+  "title": "Excel Converter",
+  "h1": "Convert spreadsheets (XLSX ↔ CSV/JSON)",
+  "dek": "Excel in, data out — and back the other way. Pick the sheet, get a clean CSV or JSON.",
+  "meta": "Convert XLSX to CSV or JSON and CSV/JSON back to XLSX, sheet by sheet, in your browser. No uploads, no Office needed.",
+  "libs": [
+   "xlsx.full.min.js"
+  ],
+  "steps": [
+   {
+    "b": "Drop a spreadsheet or tabular file",
+    "p": "XLSX, XLS, ODS in — or CSV/JSON to build a workbook."
+   },
+   {
+    "b": "Choose the direction and sheet",
+    "p": "Multi-sheet workbooks let you convert one sheet at a time, or all of them at once."
+   },
+   {
+    "b": "Download",
+    "p": "CSV or JSON for outgoing data; a proper .xlsx for anything headed to Excel."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Are formulas evaluated?",
+    "a": "Cached values are used — what you last saw in Excel is what converts. The formulas themselves live on in the original file."
+   },
+   {
+    "q": "My dates changed format!",
+    "a": "The classic Excel-dates-in-CSV problem. Dates export as readable ISO values; if a column looks wrong, check the sheet's own formatting first."
+   }
+  ],
+  "related": [
+   "csv-to-json",
+   "json-to-csv",
+   "csv-to-excel",
+   "pdf-to-word"
+  ]
+ },
+ {
+  "slug": "csv-to-excel",
+  "title": "CSV to Excel",
+  "h1": "Convert CSV to Excel (XLSX)",
+  "dek": "CSV files straight into real spreadsheets — proper types, sensible column widths, multiple CSVs as multiple sheets.",
+  "meta": "Convert CSV files into a real XLSX workbook in your browser — one file or several as separate sheets. Free, no uploads.",
+  "libs": [
+   "xlsx.full.min.js"
+  ],
+  "steps": [
+   {
+    "b": "Drop one or more CSVs",
+    "p": "Several files become several sheets in one workbook."
+   },
+   {
+    "b": "Confirm the parsing",
+    "p": "The preview shows how columns and numbers were read."
+   },
+   {
+    "b": "Download the workbook",
+    "p": "Opens cleanly in Excel, Sheets, LibreOffice — you know the drill."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Do the column widths get set?",
+    "a": "Auto widths are applied so you don't open a workbook of ##### instantly. Fine-tuning remains a human pleasure."
+   },
+   {
+    "q": "Semicolon-separated CSVs?",
+    "a": "The separator is detected automatically (comma, semicolon or tab), with a manual override if the detection guesses wrong."
+   }
+  ],
+  "related": [
+   "excel-converter",
+   "csv-to-json",
+   "json-to-csv",
+   "pdf-to-word"
+  ]
+ },
+ {
+  "slug": "markdown-to-html",
+  "title": "Markdown to HTML",
+  "h1": "Convert Markdown to HTML",
+  "dek": "Write in Markdown, leave with HTML — both the fragment for embedding and the full page.",
+  "meta": "Convert Markdown to clean HTML in your browser — fragments for embedding or complete pages. GitHub-flavoured, free, no uploads.",
+  "libs": [
+   "marked.min.js"
+  ],
+  "steps": [
+   {
+    "b": "Paste your Markdown",
+    "p": "Tables, code blocks, task lists — GitHub-flavoured syntax is the standard here."
+   },
+   {
+    "b": "Watch the preview",
+    "p": "Rendered output updates live, next to the raw HTML."
+   },
+   {
+    "b": "Copy the HTML",
+    "p": "Fragment for pasting into an existing page, or a full standalone document."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Is the HTML safe to publish?",
+    "a": "Your own Markdown is. Raw HTML inside it passes through — that's standard behaviour — so treat Markdown from strangers like any other user input."
+   },
+   {
+    "q": "Which flavour of Markdown?",
+    "a": "GitHub-flavoured: tables, strikethrough, auto-links, task lists. The additions most people assume are base Markdown anyway."
+   }
+  ],
+  "related": [
+   "html-to-markdown",
+   "json-formatter",
+   "text-cleaner",
+   "word-counter"
+  ]
+ },
+ {
+  "slug": "html-to-markdown",
+  "title": "HTML to Markdown",
+  "h1": "Convert HTML to Markdown",
+  "dek": "Scraped a page, got a wall of tags? Convert it back into tidy Markdown you can actually edit.",
+  "meta": "Convert HTML back into clean Markdown — headings, links, lists, emphasis and tables. Browser-based, free, private.",
+  "libs": [
+   "turndown.js"
+  ],
+  "steps": [
+   {
+    "b": "Paste your HTML",
+    "p": "Copy from a page's source, a CMS export, an email template — anything."
+   },
+   {
+    "b": "Choose the style",
+    "p": "ATX headings (# vs underline), bullet character, code fence style. Defaults suit most people."
+   },
+   {
+    "b": "Copy the Markdown",
+    "p": "Ready for READMEs, docs, static site generators, notes apps."
+   }
+  ],
+  "faq": [
+   {
+    "q": "What about tables and code blocks?",
+    "a": "Both convert properly, tables included — which is where most converters give up."
+   },
+   {
+    "q": "Will inline styles survive?",
+    "a": "No — Markdown has no place for them. The content structure survives; the decoration doesn't."
+   }
+  ],
+  "related": [
+   "markdown-to-html",
+   "text-cleaner",
+   "regex-tester",
+   "word-counter"
+  ]
+ },
+ {
+  "slug": "diff-checker",
+  "title": "Diff Checker",
+  "h1": "Compare two texts",
+  "dek": "Paste two versions, see exactly what changed — line by line, or word by word for fine print.",
+  "meta": "Find the difference between two texts or code files side by side, with line and word granularity. Free, private, in-browser diff.",
+  "libs": [
+   "diff.min.js"
+  ],
+  "steps": [
+   {
+    "b": "Paste both versions",
+    "p": "Left is the old, right is the new. Order of operations matters only for reading comfort."
+   },
+   {
+    "b": "Pick the granularity",
+    "p": "Line view for code and lists; word view for contracts and prose, where a comma can matter."
+   },
+   {
+    "b": "Read the diff",
+    "p": "Removed material in red, added in green, unchanged context left plain."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Can it ignore whitespace and case?",
+    "a": "Yes — toggles for both. Turn them on before you accuse anyone of an edit they never made."
+   },
+   {
+    "q": "Is this the same diff Git uses?",
+    "a": "The same algorithm family. Output is a comfortable reading view rather than a patch file you could apply."
+   }
+  ],
+  "related": [
+   "regex-tester",
+   "text-cleaner",
+   "json-formatter",
+   "word-counter"
+  ]
+ },
+ {
+  "slug": "regex-tester",
+  "title": "Regex Tester",
+  "h1": "Test regular expressions",
+  "dek": "Write a pattern, drop in sample text, watch matches highlight live — with groups, flags and a replace preview.",
+  "meta": "Test JavaScript regular expressions against sample text with live highlighting, capture groups and replace preview. Free and private.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Enter your pattern",
+    "p": "JavaScript flavour — the same engine as your browser, so what you test here is what runs there."
+   },
+   {
+    "b": "Paste sample text",
+    "p": "Matches highlight as you type. Capture groups are listed with their content."
+   },
+   {
+    "b": "Try a replacement",
+    "p": "Use $1, $2 for group references and see the result before you commit it anywhere."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Which regex flavour is this?",
+    "a": "JavaScript (ECMAScript). Python, PCRE or .NET differences — lookbehind edge cases, possessive quantifiers — won't all translate, so test in the target language too."
+   },
+   {
+    "q": "Catastrophic backtracking?",
+    "a": "A browser tab can still be hung by a vicious pattern; that risk is part of regex itself, not this page. Real text behaves."
+   }
+  ],
+  "related": [
+   "diff-checker",
+   "case-converter",
+   "text-cleaner",
+   "json-formatter"
+  ]
+ },
+ {
+  "slug": "case-converter",
+  "title": "Case Converter",
+  "h1": "Convert text case",
+  "dek": "UPPER, lower, Title, Sentence, camelCase, snake_case, kebab-case and more — one paste away.",
+  "meta": "Convert text between upper, lower, title, sentence, camel, snake, kebab and constant case instantly. Free, browser-based, private.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Paste your text",
+    "p": "A heading, a variable name, a shouty email — all valid inputs."
+   },
+   {
+    "b": "Pick a case",
+    "p": "The full menu: Upper, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE."
+   },
+   {
+    "b": "Copy the result",
+    "p": "Same words, new wardrobe."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Will Title Case mangle small words?",
+    "a": "It keeps 'and', 'of', 'the' lowercase in the middle of titles — which is the actual rule, respected."
+   },
+   {
+    "q": "Does it work on text with line breaks?",
+    "a": "Yes, each line converts independently, so lists of identifiers survive intact."
+   }
+  ],
+  "related": [
+   "word-counter",
+   "text-cleaner",
+   "url-encoder",
+   "lorem-ipsum"
+  ]
+ },
+ {
+  "slug": "word-counter",
+  "title": "Word Counter",
+  "h1": "Count words and characters",
+  "dek": "Words, characters, sentences, paragraphs and an honest reading-time estimate — updating as you type.",
+  "meta": "Count words, characters, sentences and paragraphs with live stats and reading time. Free, private, works offline in your browser.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Paste or type",
+    "p": "Live counters update as you go."
+   },
+   {
+    "b": "Read the stats",
+    "p": "Words, characters (with and without spaces), sentences, paragraphs, and reading time at 220 words per minute."
+   },
+   {
+    "b": "Trim to a limit",
+    "p": "Set a target — 280 for a tweet, 160 for a meta description — and see the remainder counted down."
+   }
+  ],
+  "faq": [
+   {
+    "q": "How is reading time calculated?",
+    "a": "220 words per minute — the widely used average for adults reading on screens. Speech runs slower; writing runs slower still."
+   },
+   {
+    "q": "Does it store my text?",
+    "a": "No. It exists in the page while you're on it and nowhere else the moment you leave."
+   }
+  ],
+  "related": [
+   "case-converter",
+   "text-cleaner",
+   "lorem-ipsum",
+   "diff-checker"
+  ]
+ },
+ {
+  "slug": "text-cleaner",
+  "title": "Clean Up Text",
+  "h1": "Clean up text",
+  "dek": "The tidy-up pass: remove duplicate lines, sort, trim whitespace, kill empty lines, fix curly quotes.",
+  "meta": "Clean text in one pass: remove duplicate lines, sort lines, trim whitespace, remove empty lines and normalise quotes. Free and private.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Paste the messy text",
+    "p": "Exports, scraped lists, spreadsheet columns pasted as walls."
+   },
+   {
+    "b": "Tick the fixes you want",
+    "p": "They stack — remove duplicates, sort alphabetically or numerically, trim each line, drop empties, straighten smart quotes."
+   },
+   {
+    "b": "Copy the clean version",
+    "p": "Line count before and after, so you can see the damage undone."
+   }
+  ],
+  "faq": [
+   {
+    "q": "What does 'sort naturally' mean?",
+    "a": "Numbers sort as numbers, so 'file2' comes before 'file10' — unlike the dictionary order that infuriates everyone."
+   },
+   {
+    "q": "Duplicate removal — case-sensitive?",
+    "a": "Your call, via a toggle. 'Apple' and 'apple' can count as one line or two."
+   }
+  ],
+  "related": [
+   "case-converter",
+   "word-counter",
+   "diff-checker",
+   "json-formatter"
+  ]
+ },
+ {
+  "slug": "base64-text",
+  "title": "Base64 Encode / Decode",
+  "h1": "Base64 a string — both directions",
+  "dek": "Text to Base64 and back, with proper UTF-8 handling so emoji don't come out as confetti.",
+  "meta": "Encode text to Base64 or decode Base64 back to text with full UTF-8 support. Free, instant, private — nothing leaves your browser.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Choose the direction",
+    "p": "Encode for text to Base64; decode for the reverse. The tool auto-detects the sensible one."
+   },
+   {
+    "b": "Paste the input",
+    "p": "Unicode, emoji, accented names — all handled correctly."
+   },
+   {
+    "b": "Copy the result",
+    "p": "Also available in URL-safe Base64 if you're feeding it into a query string."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Why is Base64 longer than the original?",
+    "a": "It needs about 33% more characters — that's the cost of representing any bytes with 64 safe symbols. It's encoding, not compression."
+   },
+   {
+    "q": "Is Base64 encryption?",
+    "a": "Emphatically no. It hides nothing from anyone who cares to look. Passwords and secrets belong in a password manager, not in Base64."
+   }
+  ],
+  "related": [
+   "image-to-base64",
+   "base64-to-image",
+   "url-encoder",
+   "hash-generator"
+  ]
+ },
+ {
+  "slug": "url-encoder",
+  "title": "URL Encode / Decode",
+  "h1": "URL encode and decode",
+  "dek": "Percent-encode the awkward characters in URLs, or unpack an encoded link so it's readable again.",
+  "meta": "Encode and decode URLs and query strings, including full-string and component modes. Browser-based, free, nothing uploaded.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Paste a URL or fragment",
+    "p": "A full link, a query value, or a path segment."
+   },
+   {
+    "b": "Pick the mode",
+    "p": "Component mode for values (spaces become %20); full-URL mode keeps :/?&= structure intact."
+   },
+   {
+    "b": "Copy either direction",
+    "p": "Decoding works on anything percent-encoded you feed it."
+   }
+  ],
+  "faq": [
+   {
+    "q": "encodeURIComponent or encodeURI?",
+    "a": "Both, via the mode switch. The first for values you're assembling into a URL, the second for an entire URL you're passing along."
+   },
+   {
+    "q": "+ or %20 for spaces?",
+    "a": "Both appear in the wild; %20 is the standard form. When decoding, both are understood."
+   }
+  ],
+  "related": [
+   "html-entities",
+   "base64-text",
+   "json-formatter",
+   "hash-generator"
+  ]
+ },
+ {
+  "slug": "html-entities",
+  "title": "HTML Entities",
+  "h1": "Escape and unescape HTML",
+  "dek": "Turn < into &lt; and back — for when you're pasting code into a page and it keeps becoming markup.",
+  "meta": "Escape HTML special characters to entities and decode entities back to text. Quick, browser-based, free, completely private.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Paste the content",
+    "p": "Code samples, email templates, anything that keeps getting interpreted."
+   },
+   {
+    "b": "Escape or unescape",
+    "p": "Escape turns angle brackets and ampersands into entities; unescape reverses it, named entities included."
+   },
+   {
+    "b": "Copy the result",
+    "p": "Paste safe now."
+   }
+  ],
+  "faq": [
+   {
+    "q": "What gets escaped?",
+    "a": "The five that matter in HTML: & < > \" '. Everything else is left readable for humans."
+   },
+   {
+    "q": "Unescape named or numeric entities?",
+    "a": "Both — &amp; and &#38; decode equally happily."
+   }
+  ],
+  "related": [
+   "url-encoder",
+   "markdown-to-html",
+   "html-to-markdown",
+   "base64-text"
+  ]
+ },
+ {
+  "slug": "hash-generator",
+  "title": "Hash Generator",
+  "h1": "Generate a hash (SHA-1/256/384/512)",
+  "dek": "Checksums for text or files — every SHA seen in the wild — to verify a download or fingerprint a string.",
+  "meta": "Compute SHA-1, SHA-256, SHA-384 and SHA-512 hashes for text or files, in your browser. Verify downloads without uploading them.",
+  "libs": [
+   "md5.min.js"
+  ],
+  "steps": [
+   {
+    "b": "Text or file?",
+    "p": "Paste a string, or drop a file to hash its full contents."
+   },
+   {
+    "b": "Pick the algorithms",
+    "p": "All four SHA variants are produced at once. SHA-256 is the one you want 99% of the time."
+   },
+   {
+    "b": "Compare or copy",
+    "p": "Paste the 'official' hash next to it and compare visually — or hex by hex."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Why no MD5?",
+    "a": "Browsers no longer expose it for good reason — it's broken for security use. If you need MD5 to match an old checksum, say so via the contact page."
+   },
+   {
+    "q": "Is a hash the same as encryption?",
+    "a": "No — hashing is one-way by design. You can't get the file back from its hash; you can only check that another copy matches."
+   }
+  ],
+  "related": [
+   "base64-text",
+   "hash-generator",
+   "exif-remover",
+   "json-formatter"
+  ]
+ },
+ {
+  "slug": "uuid-generator",
+  "title": "UUID Generator",
+  "h1": "Generate UUIDs",
+  "dek": "Version 4 UUIDs from a proper cryptographic source — one, or five hundred for that seed script.",
+  "meta": "Generate random v4 UUIDs — single, bulk up to 500, with formatting options. Cryptographically secure, browser-based, free.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Choose how many",
+    "p": "One for the clipboard, hundreds for filling a database column."
+   },
+   {
+    "b": "Pick a style",
+    "p": "Standard, uppercase, or braces-wrapped. Hyphens on or off."
+   },
+   {
+    "b": "Copy the list",
+    "p": "One per line, ready to paste into SQL, code or a config."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Are these actually random?",
+    "a": "From the browser's cryptographic generator — the same source used for encryption keys. Not the 'random' of toy languages."
+   },
+   {
+    "q": "Could two ever collide?",
+    "a": "You'd need to generate a billion UUIDs a second for decades to have a realistic chance. Sleep easy."
+   }
+  ],
+  "related": [
+   "password-generator",
+   "hash-generator",
+   "qr-generator",
+   "lorem-ipsum"
+  ]
+ },
+ {
+  "slug": "password-generator",
+  "title": "Password Generator",
+  "h1": "Generate passwords",
+  "dek": "Long, random, actually strong — generated on your device, never transmitted, never stored.",
+  "meta": "Create strong random passwords with length, symbol and ambiguity controls — generated locally in your browser. Nothing is sent anywhere.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Set the length",
+    "p": "16 characters is the modern floor; 20+ where the site allows it."
+   },
+   {
+    "b": "Choose the character set",
+    "p": "Uppercase, numbers, symbols — and a toggle to skip lookalikes (l/1/I, O/0) when you'll be typing it by hand."
+   },
+   {
+    "b": "Copy and store properly",
+    "p": "Into a password manager, ideally. The clipboard is a hallway, not a home."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Truly random?",
+    "a": "Yes — from the browser's crypto generator, with rejection sampling so every character is equally likely. Slightly more code than the lazy version, meaningfully more entropy."
+   },
+   {
+    "q": "Should I use a phrase instead?",
+    "a": "Long passphrases beat short passwords on strength and memorability both. Pick four diceware words, or take a 20-character random and let the manager remember it."
+   }
+  ],
+  "related": [
+   "uuid-generator",
+   "hash-generator",
+   "base64-text",
+   "qr-generator"
+  ]
+ },
+ {
+  "slug": "lorem-ipsum",
+  "title": "Lorem Ipsum Generator",
+  "h1": "Generate placeholder text",
+  "dek": "Classic Latin or plain-English filler, in paragraphs, sentences or word counts that fit the layout.",
+  "meta": "Generate lorem ipsum placeholder text in paragraphs, sentences or exact word counts. Free, instant, browser-based filler text.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Choose the amount",
+    "p": "Paragraphs, sentences or an exact word count — for those pixel-perfect mockups."
+   },
+   {
+    "b": "Choose the flavour",
+    "p": "Classic Latin, or English words when the client reads the mockup a little too closely."
+   },
+   {
+    "b": "Copy it out",
+    "p": "Into Figma, a CMS, an email template — wherever the real copy will eventually live."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Why not just type anything?",
+    "a": "Because readers stop reading layouts when they see real words. Filler keeps eyes on the design, which is the whole point of a mockup."
+   },
+   {
+    "q": "Does it start with 'Lorem ipsum dolor sit amet'?",
+    "a": "If you want the authentic opening, flip the toggle. Otherwise it starts anywhere in the corpus, which looks less copy-pasted."
+   }
+  ],
+  "related": [
+   "word-counter",
+   "case-converter",
+   "text-cleaner",
+   "uuid-generator"
+  ]
+ },
+ {
+  "slug": "timestamp-converter",
+  "title": "Timestamp Converter",
+  "h1": "Convert Unix timestamps",
+  "dek": "Seconds or milliseconds in, human date out — and the reverse — plus the current time for reference.",
+  "meta": "Convert Unix timestamps to dates and back, in seconds or milliseconds, with your local timezone and UTC shown. Free and private.",
+  "libs": [],
+  "steps": [
+   {
+    "b": "Paste a number",
+    "p": "10 digits is seconds, 13 is milliseconds. The tool detects which and says so."
+   },
+   {
+    "b": "Or paste a date",
+    "p": "ISO strings and common date formats convert in the other direction."
+   },
+   {
+    "b": "Copy what you need",
+    "p": "Local time, UTC, ISO 8601 — all shown at once, so you can grab the format your system wants."
+   }
+  ],
+  "faq": [
+   {
+    "q": "Why does my timestamp look two decades off?",
+    "a": "The seconds-versus-milliseconds mix-up — the single most common bug in timestamp history. The tool labels which one it read, so you'll see the mistake immediately."
+   },
+   {
+    "q": "What's the 2038 problem?",
+    "a": "The date when 32-bit systems run out of seconds. Watch it happen here, live, if you paste 2147483647."
+   }
+  ],
+  "related": [
+   "unit-converter",
+   "number-base-converter",
+   "hash-generator",
+   "json-formatter"
+  ]
+ }
+]

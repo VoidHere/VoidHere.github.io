@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR Code Reader — free, private, in your browser | DigitPDF</title>
+<meta name="description" content="Decode QR codes from screenshots or photos — links, text, Wi-Fi details — without a phone camera. Free, private, in-browser.">
+<link rel="canonical" href="https://digitpdf.io/qr-reader.html">
+<meta property="og:site_name" content="DigitPDF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="QR Code Reader — DigitPDF">
+<meta property="og:description" content="Decode QR codes from screenshots or photos — links, text, Wi-Fi details — without a phone camera. Free, private, in-browser.">
+<meta property="og:url" content="https://digitpdf.io/qr-reader.html">
+<meta property="og:image" content="https://digitpdf.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QR Code Reader — DigitPDF">
+<meta name="twitter:description" content="Decode QR codes from screenshots or photos — links, text, Wi-Fi details — without a phone camera. Free, private, in-browser.">
+<meta name="twitter:image" content="https://digitpdf.io/og-image.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/vendor/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/vendor/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/vendor/fonts/fonts.css">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "DigitPDF QR Code Reader", "url": "https://digitpdf.io/qr-reader.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Decode QR codes from screenshots or photos — links, text, Wi-Fi details — without a phone camera. Free, private, in-browser."}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://digitpdf.io/"}, {"@type": "ListItem", "position": 2, "name": "Everyday tools", "item": "https://digitpdf.io/index.html#util"}, {"@type": "ListItem", "position": 3, "name": "QR Code Reader"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I use my webcam?", "acceptedAnswer": {"@type": "Answer", "text": "This page reads images, not cameras — most phones already do the camera dance natively. Screenshot the code and drop it here."}}, {"@type": "Question", "name": "It didn't find a code — why?", "acceptedAnswer": {"@type": "Answer", "text": "Glare, blur, or a code too small in frame. Crop tighter so the code fills the image and try again."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#app">Skip to the tool</a>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="brand" href="/index.html" aria-label="DigitPDF home">
+      <span class="brand__mark" aria-hidden="true">✱</span>
+      <span class="brand__text">digitpdf<span class="brand__sub">file tools · on your device</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button>
+    <nav class="nav" aria-label="Main">
+      <a href="/index.html#toolbox">Toolbox</a>
+      <a href="/all-tools.html">All 69 tools</a>
+      <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
+      <button class="theme-btn" type="button" aria-label="Switch between light and dark theme">
+        <svg class="ic i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="ic i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/index.html">Home</a><span class="sep">/</span>
+    <a href="/index.html#util">Everyday tools</a><span class="sep">/</span>
+    <span aria-current="page">QR Code Reader</span>
+  </nav>
+
+  <section class="tool-head">
+    <h1>Read a QR code from an image</h1>
+    <p class="dek">Point it at a screenshot or photo of a QR code and get the content out — no phone needed.</p>
+    <div class="trust">
+      <span class="pill pill--ok"><svg class="ic"><use href="#i-shield"/></svg>Runs on your device</span>
+      <span class="pill"><svg class="ic"><use href="#i-lock"/></svg>No uploads, ever</span>
+      <span class="pill"><svg class="ic"><use href="#i-bolt"/></svg>Free, no account</span>
+    </div>
+  </section>
+
+  <section class="board">
+    <div id="app" class="board__main"></div>
+    <aside class="board__side" id="side">
+      <div class="panel">
+        <span class="label">The fine print</span>
+        <p style="font-size:13.5px;color:var(--muted)">
+          This page has no server behind it. Files are read, changed and re-built by your own browser —
+          then they disappear when you close the tab. That's the whole privacy policy, applied.
+        </p>
+      </div>
+      <div class="panel" id="side-extra"></div>
+    </aside>
+  </section>
+
+  <hr class="rule-d" style="margin:44px 0 0">
+
+  <section class="section" id="how">
+    <h2>How it works</h2>
+    <ol class="steps">    <li><div><b>Drop an image with a QR code</b><p>A clean screenshot is easiest; photos work if the code fills a fair part of the frame.</p></div></li>
+    <li><div><b>The content appears</b><p>Links are clickable, text is copyable, Wi-Fi strings are broken into readable parts.</p></div></li>
+    <li><div><b>Stay cautious with links</b><p>The preview lets you read a URL before you visit it — the entire reason to decode one somewhere safe.</p></div></li></ol>
+  </section>
+
+  <hr class="rule-d">
+
+  <section class="section" id="faq">
+    <h2>Questions people actually ask</h2>
+    <div class="faq">      <details><summary>Can I use my webcam?<svg class="ic ic--sm" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="a"><p>This page reads images, not cameras — most phones already do the camera dance natively. Screenshot the code and drop it here.</p></div></details>
+      <details><summary>It didn&#x27;t find a code — why?<svg class="ic ic--sm" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="a"><p>Glare, blur, or a code too small in frame. Crop tighter so the code fills the image and try again.</p></div></details></div>
+  </section>
+
+  <hr class="rule-d">
+
+  <section class="section" id="related">
+    <h2>Do more with it</h2>
+    <p class="cat-dek">Tools that pick up where this one leaves off.</p>
+    <div class="tgrid"><a class="tcard" href="/qr-generator.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-util"/></svg></span><span class="tcard__t">QR Code Generator</span><span class="tcard__d">Links, Wi-Fi passwords, plain text — as PNG or SVG, in any colour, at any size…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+<a class="tcard" href="/barcode-generator.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-util"/></svg></span><span class="tcard__t">Barcode Generator</span><span class="tcard__d">CODE128, EAN and friends as crisp PNGs — for product labels, inventory stickers…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+<a class="tcard" href="/ocr.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-util"/></svg></span><span class="tcard__t">OCR</span><span class="tcard__d">Screenshots, photos of paper, scanned PDFs — pulled into selectable, searchable…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+<a class="tcard" href="/base64-to-image.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span><span class="tcard__t">Base64 to Image</span><span class="tcard__d">Pasted data URI or raw Base64 — decoded into a real image file you can save.</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/index.html" style="margin-bottom:14px">
+          <span class="brand__mark" aria-hidden="true">✱</span>
+          <span class="brand__text">digitpdf</span>
+        </a>
+        <p style="font-size:13.5px;color:var(--muted);max-width:300px">
+          69 free file tools that run entirely in your browser. Nothing is uploaded, because there is nowhere to upload it to. Made by a person, not a platform.
+        </p>
+      </div>
+      <div>
+        <h3>The toolbox</h3>
+        <ul>
+          <li><a href="/index.html#pdf">PDF tools</a></li>
+          <li><a href="/index.html#image">Image tools</a></li>
+          <li><a href="/index.html#media">Video &amp; audio</a></li>
+          <li><a href="/index.html#text">Text &amp; code</a></li>
+          <li><a href="/index.html#util">Everyday tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The site</h3>
+        <ul>
+          <li><a href="/all-tools.html">All tools</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Fine print</h3>
+        <ul>
+          <li><a href="/privacy.html">Privacy policy</a></li>
+          <li><a href="/terms.html">Terms of use</a></li>
+          <li><a href="/about.html#how">How it works</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">
+      <p>© <span data-year>2026</span> DigitPDF · built in Kasur, Pakistan, in a room with one desk.</p>
+      <span class="running"><i aria-hidden="true"></i><b data-count>0</b>&nbsp;files handled on this device</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/vendor/jsQR.js" defer></script>
+<script src="/js/core.js" defer></script>
+<script src="/js/tools/qr-reader.js" defer></script>
+</body>
+</html>

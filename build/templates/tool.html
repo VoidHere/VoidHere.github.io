@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}} — free, private, in your browser | DigitPDF</title>
+<meta name="description" content="{{META}}">
+<link rel="canonical" href="{{SITEURL}}/{{SLUG}}.html">
+<meta property="og:site_name" content="DigitPDF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{TITLE}} — DigitPDF">
+<meta property="og:description" content="{{META}}">
+<meta property="og:url" content="{{SITEURL}}/{{SLUG}}.html">
+<meta property="og:image" content="{{SITEURL}}/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{TITLE}} — DigitPDF">
+<meta name="twitter:description" content="{{META}}">
+<meta name="twitter:image" content="{{SITEURL}}/og-image.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/vendor/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/vendor/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/vendor/fonts/fonts.css">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">{{JSONLD}}</script>
+</head>
+<body>
+<a class="skip" href="#app">Skip to the tool</a>
+{{HEADER}}
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/index.html">Home</a><span class="sep">/</span>
+    <a href="/index.html#{{CATKEY}}">{{CATNAME}}</a><span class="sep">/</span>
+    <span aria-current="page">{{TITLE}}</span>
+  </nav>
+
+  <section class="tool-head">
+    <h1>{{H1}}</h1>
+    <p class="dek">{{DEK}}</p>
+    <div class="trust">
+      <span class="pill pill--ok"><svg class="ic"><use href="#i-shield"/></svg>Runs on your device</span>
+      <span class="pill"><svg class="ic"><use href="#i-lock"/></svg>No uploads, ever</span>
+      <span class="pill"><svg class="ic"><use href="#i-bolt"/></svg>Free, no account</span>
+    </div>
+  </section>
+
+  <section class="board">
+    <div id="app" class="board__main"></div>
+    <aside class="board__side" id="side">
+      <div class="panel">
+        <span class="label">The fine print</span>
+        <p style="font-size:13.5px;color:var(--muted)">
+          This page has no server behind it. Files are read, changed and re-built by your own browser —
+          then they disappear when you close the tab. That's the whole privacy policy, applied.
+        </p>
+      </div>
+      <div class="panel" id="side-extra"></div>
+    </aside>
+  </section>
+
+  <hr class="rule-d" style="margin:44px 0 0">
+
+  <section class="section" id="how">
+    <h2>How it works</h2>
+    <ol class="steps">{{STEPS}}</ol>
+  </section>
+
+  <hr class="rule-d">
+
+  <section class="section" id="faq">
+    <h2>Questions people actually ask</h2>
+    <div class="faq">{{FAQLIST}}</div>
+  </section>
+
+  <hr class="rule-d">
+
+  <section class="section" id="related">
+    <h2>Do more with it</h2>
+    <p class="cat-dek">Tools that pick up where this one leaves off.</p>
+    <div class="tgrid">{{RELATED}}</div>
+  </section>
+</main>
+{{FOOTER}}
+{{LIBS}}
+<script src="/js/core.js" defer></script>
+<script src="/js/tools/{{SLUG}}.js" defer></script>
+</body>
+</html>

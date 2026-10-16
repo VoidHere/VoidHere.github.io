@@ -1,0 +1,85 @@
+/* Convert Audio — MP3, WAV, M4A, OGG and FLAC, decided per file. */
+(() => {
+  "use strict";
+  const { el, $ } = DP;
+  const app = $("#app"), side = $("#side-extra");
+
+  const panel = el("div", { class: "panel" }, el("span", { class: "label", text: "Convert to" }));
+  side.append(panel);
+  const optHost = el("div"); panel.append(optHost);
+  const chosen = DP.options(optHost, [
+    { k: "format", type: "seg", label: "Format", value: "mp3", options: [
+      { v: "mp3", label: "MP3" }, { v: "wav", label: "WAV" }, { v: "m4a", label: "M4A" }, { v: "ogg", label: "OGG" }, { v: "flac", label: "FLAC" } ] },
+    { k: "bitrate", type: "select", label: "Bitrate", value: "192", options: [
+      { v: "96", label: "96 kbps — podcasts, voice" },
+      { v: "128", label: "128 kbps — small" },
+      { v: "192", label: "192 kbps — recommended" },
+      { v: "320", label: "320 kbps — generous" } ],
+      hint: "Lossy formats only — WAV and FLAC ignore this." }
+  ]);
+  const note = el("div", { class: "panel" }, el("span", { class: "label", text: "Good to know" }),
+    el("p", { style: "margin:0;font-size:13px;color:var(--muted);line-height:1.55", text: "WAV and FLAC are lossless — files will be large, and that's the point. MP3/M4A/OGG re-encode, so keep the bitrate honest. The engine (~31 MB) loads once and stays cached in your browser." }));
+  side.append(note);
+
+  const dz = DP.dropzone(app, {
+    accept: "audio/*,.mp3,.wav,.m4a,.aac,.ogg,.oga,.flac,.opus,.wma,.aiff",
+    multiple: true, icon: "i-wave",
+    title: "Drop audio files", hint: "MP3, WAV, M4A, OGG, FLAC, WMA… — batch friendly"
+  });
+
+  const out = el("div", { style: "margin-top:18px" });
+  const runBtn = el("button", { class: "btn btn--primary", type: "button" }, "Convert");
+  runBtn.dataset.busy = "Converting…";
+  app.append(el("div", { class: "btn-row", style: "margin-top:18px" }, runBtn));
+  app.append(out);
+
+  const QMAP = { "96": "2", "128": "3", "192": "5", "320": "7" };
+  let warm = false;
+
+  runBtn.addEventListener("click", () => DP.busy(runBtn, async () => {
+    const files = dz.files;
+    if (!files.length) throw new Error("Drop an audio file first.");
+    const o = chosen.read();
+    if (!warm) runBtn.innerHTML = '<span class="spinner"></span>Waking the engine…';
+    const ff = await DP.ffmpeg();
+    warm = true;
+    const items = [];
+    const prog = DP.progress(out, "Starting…");
+    for (let i = 0; i < files.length; i++) {
+      const f = files[i];
+      const IN = "in." + (DP.getExt(f.name) || "mp3");
+      const OUT = "out." + o.format;
+      let stop = null;
+      try {
+        await ff.writeFile(IN, await DP.bytes(f));
+        const args = ["-i", IN, "-vn"];
+        if (o.format === "mp3") args.push("-c:a", "libmp3lame", "-b:a", o.bitrate + "k");
+        else if (o.format === "wav") args.push("-c:a", "pcm_s16le");
+        else if (o.format === "m4a") args.push("-c:a", "aac", "-b:a", o.bitrate + "k");
+        else if (o.format === "ogg") args.push("-c:a", "libvorbis", "-q:a", QMAP[o.bitrate] || "5");
+        else args.push("-c:a", "flac", "-compression_level", "5");
+        args.push("-y", OUT);
+        runBtn.innerHTML = '<span class="spinner"></span>Converting — ' + (i + 1) + " of " + files.length + "…";
+        stop = DP.onFFmpeg(e => { if (e.type === "progress") prog.set((i + (e.progress || 0)) / files.length * 100, `${f.name} — ${i + 1} of ${files.length}…`); });
+        const code = await ff.exec(args);
+        if (code !== 0) throw new Error("the engine exited with " + code);
+        const data = await ff.readFile(OUT);
+        const mime = { mp3: "audio/mpeg", wav: "audio/wav", m4a: "audio/mp4", ogg: "audio/ogg", flac: "audio/flac" }[o.format];
+        const blob = new Blob([data], { type: mime });
+        items.push({
+          name: `${DP.stripExt(f.name)}.${o.format}`,
+          blob, meta: `${DP.fmtBytes(f.size)} → ${DP.fmtBytes(blob.size)}`
+        });
+      } catch (e) {
+        DP.toast(`Skipped "${f.name}" — ${e.message}`, "err");
+      } finally {
+        stop && stop();
+        await ff.deleteFile(IN).catch(() => {});
+        await ff.deleteFile(OUT).catch(() => {});
+      }
+    }
+    prog.done();
+    if (!items.length) throw new Error("Nothing could be converted.");
+    DP.results(out, items, { title: `${DP.plural(items.length, "track")} converted`, zipName: "converted-audio.zip" });
+  }));
+})();

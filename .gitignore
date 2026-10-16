@@ -1,0 +1,6 @@
+# local test fixtures — not part of the site
+test-assets/
+
+# build noise
+__pycache__/
+*.pyc

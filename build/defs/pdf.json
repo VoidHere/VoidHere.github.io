@@ -1,0 +1,273 @@
+[
+  {
+    "slug": "merge-pdf",
+    "title": "Merge PDF",
+    "h1": "Merge PDF files",
+    "dek": "Combine several PDFs into one document. Drag them into the order you want, or let the file list decide.",
+    "meta": "Merge multiple PDF files into one document, free and offline. Files are combined in your browser — nothing is uploaded, no sign-up needed.",
+    "libs": ["pdf-lib.min.js"],
+    "steps": [
+      { "b": "Add your PDFs", "p": "Drop two or more PDF files onto the cutting board. They stay in your browser the whole time." },
+      { "b": "Set the order", "p": "New files land at the bottom. Use the arrows on each file to move it up or down." },
+      { "b": "Merge and download", "p": "Press Merge. The combined file downloads straight away." }
+    ],
+    "faq": [
+      { "q": "Is there a file size limit?", "a": "No hard limit from us. The practical ceiling is your computer's memory — a merge of a few 100 MB files is usually fine on a modern laptop." },
+      { "q": "What about password-protected PDFs?", "a": "Those can't be opened without the password, so they can't be merged. Unlock them first, then merge." }
+    ],
+    "related": ["split-pdf", "compress-pdf", "images-to-pdf", "pdf-metadata"]
+  },
+  {
+    "slug": "split-pdf",
+    "title": "Split PDF",
+    "h1": "Split a PDF into separate files",
+    "dek": "Cut one PDF into several. Split at every page, or pull out just the ranges you name.",
+    "meta": "Split a PDF into multiple files by page ranges, offline in your browser. No uploads, no email wall. Free and private.",
+    "libs": ["pdf-lib.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "One file at a time. The page count is shown as soon as it loads." },
+      { "b": "Pick how to split", "p": "Every page becomes its own file, or type ranges like 1-3, 4, 7-9 to choose exactly what gets cut out." },
+      { "b": "Download", "p": "You'll get each piece as its own PDF, plus a ZIP button if you'd rather take them all at once." }
+    ],
+    "faq": [
+      { "q": "How do I split at a certain page?", "a": "Use ranges: '1-5, 6-10' gives you two files, one for each range. '1,2,3' gives you three single-page files." },
+      { "q": "Does splitting change the pages?", "a": "No. Pages are copied exactly as they are — text stays text, images stay sharp." }
+    ],
+    "related": ["merge-pdf", "extract-pages", "remove-pages", "rotate-pdf"]
+  },
+  {
+    "slug": "extract-pages",
+    "title": "Extract PDF Pages",
+    "h1": "Extract pages from a PDF",
+    "dek": "Pull selected pages out of a PDF into a new document, without touching the original file.",
+    "meta": "Extract specific pages from a PDF into a new file, right in your browser. Free, offline, no uploads or accounts.",
+    "libs": ["pdf-lib.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "The tool reads the page count so you know what you're working with." },
+      { "b": "Name the pages", "p": "Type a selection like 2,5,6-9. That order is kept in the new file." },
+      { "b": "Download the extract", "p": "You get a fresh PDF with only those pages. The original on disk is never modified." }
+    ],
+    "faq": [
+      { "q": "Can I extract pages in reverse order?", "a": "Yes — '9-6' works and writes the pages back to front. Type it exactly as 9-6." },
+      { "q": "How is this different from splitting?", "a": "Splitting cuts one PDF into many. Extracting pulls a selection into one new file and leaves it at that." }
+    ],
+    "related": ["split-pdf", "remove-pages", "merge-pdf", "reorder-pdf"]
+  },
+  {
+    "slug": "remove-pages",
+    "title": "Delete PDF Pages",
+    "h1": "Delete pages from a PDF",
+    "dek": "Drop the pages you don't want — blank scans, cover sheets, that one page with the wrong total.",
+    "meta": "Remove unwanted pages from a PDF and save the cleaned file, all offline in your browser. Free, private, no uploads.",
+    "libs": ["pdf-lib.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "The total page count appears so you can double-check against the document." },
+      { "b": "Choose pages to remove", "p": "Type numbers or ranges, like 1,4,7-9. Everything else stays untouched." },
+      { "b": "Download the cleaned file", "p": "You get a new PDF; the original on your disk stays as it was." }
+    ],
+    "faq": [
+      { "q": "Can I delete the first page only?", "a": "Type 1 and press the button. That's it." },
+      { "q": "What if I remove every page?", "a": "The tool refuses — a PDF needs at least one page — and tells you so instead of producing a broken file." }
+    ],
+    "related": ["extract-pages", "split-pdf", "reorder-pdf", "merge-pdf"]
+  },
+  {
+    "slug": "rotate-pdf",
+    "title": "Rotate PDF",
+    "h1": "Rotate PDF pages",
+    "dek": "Scanned a batch sideways again? Turn every page or just the odd ones, then save.",
+    "meta": "Rotate PDF pages 90, 180 or 270 degrees and save — entirely in your browser, no uploads. Fix sideways scans in seconds.",
+    "libs": ["pdf-lib.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "Load the sideways document." },
+      { "b": "Pick a rotation", "p": "90° clockwise or anticlockwise, or 180° to flip it right over. Optionally limit this to certain pages." },
+      { "b": "Download", "p": "The rotation is written into the file, so it shows the same everywhere." }
+    ],
+    "faq": [
+      { "q": "Can I rotate only page 3?", "a": "Yes. Leave the rotation set, type 3 in the pages box, and only that page turns." },
+      { "q": "Does rotating hurt quality?", "a": "No. Rotation is a note written into the page — no re-rendering, no pixel damage." }
+    ],
+    "related": ["reorder-pdf", "remove-pages", "merge-pdf", "compress-pdf"]
+  },
+  {
+    "slug": "reorder-pdf",
+    "title": "Reorder PDF Pages",
+    "h1": "Reorder PDF pages",
+    "dek": "The page order the scanner chose, or the one you actually want. Rearrange and save.",
+    "meta": "Rearrange PDF pages into any order — type the new sequence, get the file back in seconds. Offline, free, no uploads.",
+    "libs": ["pdf-lib.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "Check the page count that appears." },
+      { "b": "Type the new order", "p": "For a 5-page file, '5,4,3,2,1' reverses it. '2,1,3,4,5' swaps the first two. Every page must appear exactly once." },
+      { "b": "Download", "p": "The rearranged file downloads with nothing else changed." }
+    ],
+    "faq": [
+      { "q": "What if I get the sequence wrong?", "a": "The tool checks it against the page count and refuses with a plain-English message rather than silently skipping pages." },
+      { "q": "Can I duplicate a page this way?", "a": "No — reordering only moves pages. Use Extract Pages twice if you need a duplicate." }
+    ],
+    "related": ["rotate-pdf", "remove-pages", "split-pdf", "extract-pages"]
+  },
+  {
+    "slug": "compress-pdf",
+    "title": "Compress PDF",
+    "h1": "Compress a PDF",
+    "dek": "Shrink oversized PDFs for email and upload limits. Choose how hard to squeeze and watch the size drop.",
+    "meta": "Compress PDF files in your browser — pick a quality level, see before/after sizes, download instantly. No uploads, free.",
+    "libs": ["pdf-lib.min.js", "pdf.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "The current file size is shown so you can compare after." },
+      { "b": "Choose a level", "p": "Light keeps near-original quality. Balanced is the sensible default. Strong squeezes hardest for the smallest file." },
+      { "b": "Download the smaller file", "p": "You'll see exactly how many MB disappeared before you save." }
+    ],
+    "faq": [
+      { "q": "How does it work?", "a": "Light mode optimises the file's structure and keeps text as text. Balanced and Strong re-render pages as high-quality images at a lower resolution — like re-photographing the pages at a sensible size. Strong on a photo-heavy scan can cut 90% or more." },
+      { "q": "Will text stay selectable?", "a": "In Light mode, yes. In Balanced and Strong the pages become images, so text is no longer selectable — that's the trade for the smaller size." },
+      { "q": "My file barely shrank. Why?", "a": "PDFs that are already optimised (mostly plain text) have almost nothing to give. Try Strong, or accept that some files are simply already small." }
+    ],
+    "related": ["pdf-to-jpg", "split-pdf", "merge-pdf", "pdf-to-png"]
+  },
+  {
+    "slug": "pdf-to-jpg",
+    "title": "PDF to JPG",
+    "h1": "Convert PDF to JPG",
+    "dek": "Turn each page into a JPG image. Pick the resolution — 150 DPI for screens, 300 DPI for print.",
+    "meta": "Convert PDF pages to JPG images at up to 300 DPI, right in your browser. Private, offline, no uploads or sign-up.",
+    "libs": ["pdf.min.js", "jszip.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "Works best on documents up to a few hundred pages." },
+      { "b": "Pick quality and which pages", "p": "DPI sets the sharpness; the pages field lets you convert only a selection." },
+      { "b": "Download", "p": "Single page converts download directly; more than one arrives as a ZIP." }
+    ],
+    "faq": [
+      { "q": "What DPI should I use?", "a": "150 DPI is fine for viewing and email. 300 DPI is the print standard. 72 DPI only if you truly need thumbnails." },
+      { "q": "Why is my output blurry?", "a": "It isn't — check your DPI setting. At 72 DPI a full A4 page is only 595 pixels wide; that's the setting, not the conversion." }
+    ],
+    "related": ["pdf-to-png", "compress-pdf", "pdf-to-text", "images-to-pdf"]
+  },
+  {
+    "slug": "pdf-to-png",
+    "title": "PDF to PNG",
+    "h1": "Convert PDF to PNG",
+    "dek": "Sharp, lossless page images — good for screenshots, slides and anything you'll edit afterwards.",
+    "meta": "Convert PDF pages to PNG images at custom DPI in your browser. Lossless quality, zero uploads, completely free.",
+    "libs": ["pdf.min.js", "jszip.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "Every page is rendered on your machine." },
+      { "b": "Set DPI and pages", "p": "300 DPI for print-sharp, 150 for everyday use. Restrict to specific pages if you like." },
+      { "b": "Download the images", "p": "A single page downloads as one PNG; several pages come zipped." }
+    ],
+    "faq": [
+      { "q": "PNG or JPG — which should I pick?", "a": "PNG for crisp text and line art, JPG for photo-heavy pages where file size matters more than perfection." },
+      { "q": "Transparent background?", "a": "Most PDFs paint a white page, and the converter honours that. Pages with no background come out transparent." }
+    ],
+    "related": ["pdf-to-jpg", "compress-pdf", "pdf-to-text", "svg-to-png"]
+  },
+  {
+    "slug": "pdf-to-text",
+    "title": "PDF to Text",
+    "h1": "Extract text from a PDF",
+    "dek": "Get the words out — editable, selectable, copyable — with page markers so nothing gets lost in the shuffle.",
+    "meta": "Extract selectable text from PDF files in your browser. Copy it or download as .txt. No uploads, free, works offline.",
+    "libs": ["pdf.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "The tool reads the text layer, page by page." },
+      { "b": "Review the result", "p": "Text appears in the box below with --- page --- markers. Copy what you need, or take the whole thing as .txt." },
+      { "b": "Download or copy", "p": "One click for the whole document; the copy button is there for a single paragraph." }
+    ],
+    "faq": [
+      { "q": "The text came out empty. Why?", "a": "That PDF is a scan — it's a picture of text, not text itself. Use the OCR tool to read scans." },
+      { "q": "Are tables and columns preserved?", "a": "Roughly. Text comes out in reading order, so simple tables survive and complex multi-column layouts may need tidying." }
+    ],
+    "related": ["ocr", "pdf-to-word", "pdf-to-jpg", "pdf-metadata"]
+  },
+  {
+    "slug": "images-to-pdf",
+    "title": "Images to PDF",
+    "h1": "Turn images into a PDF",
+    "dek": "JPG, PNG or WebP in — one tidy PDF out. Set the page size, margins, and whether each image fills its page.",
+    "meta": "Combine JPG, PNG and WebP images into a single PDF with custom page size and margins. Offline in your browser, no uploads.",
+    "libs": ["pdf-lib.min.js"],
+    "steps": [
+      { "b": "Drop your images", "p": "Most formats work: JPG, PNG, WebP, GIF (first frame), BMP. They're ordered as listed." },
+      { "b": "Choose page settings", "p": "A4 or Letter, portrait or landscape, and whether images fit inside the margin or fill the whole page." },
+      { "b": "Build and download", "p": "One PDF with your images, in order." }
+    ],
+    "faq": [
+      { "q": "Will my images be re-compressed?", "a": "No. They're embedded as-is, so quality is exactly what you dropped in — the PDF is simply a tidy container." },
+      { "q": "Can I reorder the images?", "a": "Yes — remove and re-add, or drop them in the order you want. The list order is the page order." }
+    ],
+    "related": ["merge-pdf", "pdf-to-jpg", "image-converter", "pdf-to-png"]
+  },
+  {
+    "slug": "watermark-pdf",
+    "title": "Watermark PDF",
+    "h1": "Add a watermark to a PDF",
+    "dek": "Stamp text across the pages — DRAFT, CONFIDENTIAL, your company name — at the angle and opacity you set.",
+    "meta": "Add text watermarks to PDF pages with custom size, angle and opacity. Runs in your browser — no uploads, free, private.",
+    "libs": ["pdf-lib.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "The page count and size are read automatically." },
+      { "b": "Write the watermark", "p": "Type your text, then set size, colour, opacity and angle. Diagonal and faint is the classic look; your call." },
+      { "b": "Apply and download", "p": "The watermark is drawn on every page you choose." }
+    ],
+    "faq": [
+      { "q": "Can I watermark only some pages?", "a": "Yes — type the pages to cover, like 1-3,7. Leave it blank for every page." },
+      { "q": "Can I use a logo image as a watermark?", "a": "Text only for now. Image watermarks need alpha handling that would bloat this page without adding much." }
+    ],
+    "related": ["page-numbers-pdf", "compress-pdf", "pdf-metadata", "rotate-pdf"]
+  },
+  {
+    "slug": "page-numbers-pdf",
+    "title": "Page Numbers PDF",
+    "h1": "Add page numbers to a PDF",
+    "dek": "Number your pages properly — position, start number and format like 1 or Page 1 of 12.",
+    "meta": "Add page numbers to any PDF with custom position, start number and format like 'Page 3 of 20'. In-browser, free, no uploads.",
+    "libs": ["pdf-lib.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "Page count is read so the 'of N' style can be accurate." },
+      { "b": "Set the numbering", "p": "Pick the corner, the first number, font size, and whether to include 'of N'." },
+      { "b": "Download", "p": "Numbers appear exactly where you placed them, on every chosen page." }
+    ],
+    "faq": [
+      { "q": "Can I skip the cover page?", "a": "Yes. Set the start number and choose which pages receive numbers — leave page 1 out and start counting at 1 on page 2." },
+      { "q": "Which corners can I use?", "a": "Six positions: three along the bottom, three along the top." }
+    ],
+    "related": ["watermark-pdf", "reorder-pdf", "pdf-metadata", "compress-pdf"]
+  },
+  {
+    "slug": "pdf-metadata",
+    "title": "PDF Metadata Editor",
+    "h1": "Edit PDF metadata",
+    "dek": "Fix the title, author and keywords that applications show for a PDF — or clear leftovers before sharing the file.",
+    "meta": "View and edit PDF title, author, subject and keywords — or wipe the metadata clean before sharing. Free, offline, private.",
+    "libs": ["pdf-lib.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "The current title, author, subject and keywords are read out and shown in the fields." },
+      { "b": "Edit or clear", "p": "Change anything you like. Empty fields are removed from the file, not written as blanks." },
+      { "b": "Save the copy", "p": "Only metadata changes; the pages are untouched." }
+    ],
+    "faq": [
+      { "q": "What gets shown to readers?", "a": "The title appears in the browser tab and some readers; the author and keywords show up in file properties and search indexes." },
+      { "q": "Can this hide that a PDF was edited?", "a": "No, and it isn't meant to. It fixes metadata — dates and producer records are left alone." }
+    ],
+    "related": ["watermark-pdf", "compress-pdf", "pdf-to-text", "exif-remover"]
+  },
+  {
+    "slug": "pdf-to-word",
+    "title": "PDF to Word",
+    "h1": "Convert PDF to Word (.docx)",
+    "dek": "Get the text into a .docx you can edit. No layout magic promised — words come out clean and ready to reformat.",
+    "meta": "Convert a PDF to an editable Word .docx with text pulled page by page. Honest, browser-based, no sign-up, no uploads.",
+    "libs": ["pdf.min.js", "jszip.min.js"],
+    "steps": [
+      { "b": "Drop the PDF", "p": "Text is pulled page by page, keeping paragraph breaks where the PDF has them." },
+      { "b": "Choose what to include", "p": "Optionally keep page markers so you can find your place while editing." },
+      { "b": "Download the .docx", "p": "Open it in Word, Google Docs, LibreOffice — whatever you have." }
+    ],
+    "faq": [
+      { "q": "Will it look exactly like the PDF?", "a": "No, and no honest browser tool can promise that. Layout, columns and images aren't reproduced — the text and paragraphs are. You'll reformat in seconds; you won't retype in hours." },
+      { "q": "My scan produced an empty document.", "a": "Scanned PDFs have no text layer. Run the OCR tool first, then paste the result — or rebuild the document in Word directly." }
+    ],
+    "related": ["pdf-to-text", "ocr", "pdf-to-jpg", "pdf-metadata"]
+  }
+]

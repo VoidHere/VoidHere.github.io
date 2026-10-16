@@ -1,0 +1,272 @@
+[
+  {
+    "slug": "image-converter",
+    "title": "Image Converter",
+    "h1": "Convert images",
+    "dek": "PNG, JPG, WebP, BMP, GIF — in one side, any of them out the other. Batch as many as you like.",
+    "meta": "Convert images between PNG, JPG, WebP, BMP and more, in batch and entirely in your browser. Free, no uploads, no watermarks.",
+    "libs": [],
+    "steps": [
+      { "b": "Drop your images", "p": "Any mix of formats. The list shows a thumbnail per file." },
+      { "b": "Pick the output format", "p": "JPG, PNG, WebP or BMP, with a quality slider for the lossy formats. Optional max-width for shrinking on the way out." },
+      { "b": "Convert and download", "p": "Everything converts at once; the ZIP button gathers the lot." }
+    ],
+    "faq": [
+      { "q": "Are the conversions done online?", "a": "No — your browser has a full image engine built in, and that's what's used. The files never touch a server because there isn't one." },
+      { "q": "Why did my PNG turn white around the edges?", "a": "JPG has no transparency. If a transparent PNG goes to JPG, the background has to become something — white is the default. Output to PNG or WebP to keep transparency." }
+    ],
+    "related": ["image-compressor", "image-resizer", "svg-to-png", "heic-to-jpg"]
+  },
+  {
+    "slug": "image-compressor",
+    "title": "Compress Images",
+    "h1": "Compress images",
+    "dek": "Cut image weight for faster pages and lighter emails. Quality slider plus optional size cap — no mystery settings.",
+    "meta": "Compress JPG and PNG images with a quality slider and optional max width. See before/after sizes, keep files private. No uploads.",
+    "libs": [],
+    "steps": [
+      { "b": "Drop your images", "p": "Original sizes are listed as they load." },
+      { "b": "Choose quality", "p": "80 looks like 100 to nearly everyone. 60 starts to show on close inspection. Optionally cap the longest side to shrink further." },
+      { "b": "Download", "p": "Each result shows exactly how much smaller it got." }
+    ],
+    "faq": [
+      { "q": "How much smaller will my files get?", "a": "Photos typically drop 50–80% at quality 80. Flat graphics and screenshots compress less — they were already efficient — so try WebP output for those." },
+      { "q": "Does compressing lose quality?", "a": "At 80+, essentially never perceptibly. Below 60 you're trading visible quality for size — the preview will show you before you commit." }
+    ],
+    "related": ["image-resizer", "image-converter", "compress-pdf", "exif-remover"]
+  },
+  {
+    "slug": "image-resizer",
+    "title": "Resize Images",
+    "h1": "Resize images",
+    "dek": "Exact pixels or a percentage — set the width, height, or both, and keep the aspect ratio if you want it kept.",
+    "meta": "Resize images to exact pixel dimensions or percentages with high-quality scaling. Batch resize in your browser. Free, private, offline.",
+    "libs": [],
+    "steps": [
+      { "b": "Drop your images", "p": "The dimensions appear next to each file." },
+      { "b": "Set new dimensions", "p": "Type a width, a height, or a percentage. With 'keep ratio' on, giving one side fills the other automatically." },
+      { "b": "Resize and download", "p": "Everything resizes consistently, ready to download." }
+    ],
+    "faq": [
+      { "q": "How is the quality after an upscale?", "a": "Scaling up can't invent detail that wasn't there. It won't blur like a phone screenshot — Lanczos-quality resampling is used — but 2x is the practical limit." },
+      { "q": "Can I resize by exact percentage?", "a": "Yes — switch to percent mode and set 50% to halve every dimension, handy for @2x assets." }
+    ],
+    "related": ["image-cropper", "image-compressor", "favicon-generator", "image-converter"]
+  },
+  {
+    "slug": "image-cropper",
+    "title": "Crop Images",
+    "h1": "Crop images",
+    "dek": "Drag a box over the part you want, check the preview, done. Several images at once uses the same box on each.",
+    "meta": "Crop images visually — drag a selection, fine-tune the numbers, export cleanly. Runs fully in your browser, nothing uploaded.",
+    "libs": [],
+    "steps": [
+      { "b": "Drop an image", "p": "It opens in the cutter with a live selection box." },
+      { "b": "Drag the crop area", "p": "Move the box, or type exact pixel coordinates on the right. The preview updates as you go." },
+      { "b": "Export", "p": "The cropped image downloads as PNG or JPG." }
+    ],
+    "faq": [
+      { "q": "Can I crop a batch with the same rectangle?", "a": "Yes — add more images and the same pixel box applies to each. Useful for screenshots of the same app or scans." },
+      { "q": "What's the smallest crop I can make?", "a": "No practical minimum; if you can drag it, you can crop it." }
+    ],
+    "related": ["image-resizer", "rotate-image", "image-converter", "image-compressor"]
+  },
+  {
+    "slug": "rotate-image",
+    "title": "Rotate Images",
+    "h1": "Rotate images",
+    "dek": "Quarter turns, half turns, or any angle in between — with the corners filled so nothing goes missing.",
+    "meta": "Rotate images by 90°, 180°, 270° or a custom angle with automatic canvas fitting. In-browser, free, no uploads.",
+    "libs": [],
+    "steps": [
+      { "b": "Drop your images", "p": "Single or batch." },
+      { "b": "Choose the angle", "p": "Quick buttons for the two right turns and the half turn, or type any angle — 3° of straightening on a crooked photo, say." },
+      { "b": "Download", "p": "Batch results arrive zipped or individually." }
+    ],
+    "faq": [
+      { "q": "Does a custom angle crop the corners?", "a": "No — the canvas grows to fit the rotated image, so nothing is cut off. The new file's dimensions adjust accordingly." },
+      { "q": "Does rotating lose quality?", "a": "Right-angle turns are mathematically lossless. Free angles resample once, which at normal quality settings is invisible." }
+    ],
+    "related": ["flip-image", "image-cropper", "image-resizer", "image-converter"]
+  },
+  {
+    "slug": "flip-image",
+    "title": "Flip Images",
+    "h1": "Flip images",
+    "dek": "Mirror any image horizontally or vertically — fixing selfies, reversing scans, making not-so-subtle design jokes.",
+    "meta": "Flip images horizontally or vertically in your browser. Free, instant, no uploads, no quality loss.",
+    "libs": [],
+    "steps": [
+      { "b": "Drop your images", "p": "Previews show what you're about to mirror." },
+      { "b": "Choose a flip", "p": "Horizontal is the mirror look; vertical is the ink-blot look. Both at once is a 180° turn." },
+      { "b": "Download", "p": "Done — pixels rearranged, nothing re-compressed unnecessarily." }
+    ],
+    "faq": [
+      { "q": "Is flipping different from rotating?", "a": "Yes — a flip mirrors the image, so left and right swap. A 180° rotation is a flip both ways, which is why they can look similar at a glance." },
+      { "q": "Does it affect quality?", "a": "The rearrangement itself is lossless; only the export format's compression touches the pixels." }
+    ],
+    "related": ["rotate-image", "image-cropper", "image-converter", "watermark-image"]
+  },
+  {
+    "slug": "watermark-image",
+    "title": "Watermark Images",
+    "h1": "Watermark images",
+    "dek": "Put your mark on photos: text or logo, any corner, opacity you control. Batch it — every image gets the same stamp.",
+    "meta": "Add text or logo watermarks to one image or a whole batch — position, size and opacity control included. Offline, private.",
+    "libs": [],
+    "steps": [
+      { "b": "Drop your images", "p": "Batch works — one watermark setting applies to all." },
+      { "b": "Write or upload the mark", "p": "Text with custom colour and background pill, or a logo image with opacity control. Place it in any corner." },
+      { "b": "Apply and download", "p": "The live preview shows the result before you commit." }
+    ],
+    "faq": [
+      { "q": "Can I use a transparent PNG logo?", "a": "Yes — transparency is respected. Scale it down as a percentage of the photo so it fits consistently." },
+      { "q": "Can the watermark be tiled across the whole image?", "a": "Single placement for now, corner or centre. Tiling gets busy fast and adds options nobody uses twice." }
+    ],
+    "related": ["watermark-pdf", "image-compressor", "exif-remover", "image-resizer"]
+  },
+  {
+    "slug": "favicon-generator",
+    "title": "Favicon Generator",
+    "h1": "Favicon generator",
+    "dek": "One image in — a proper favicon.ico, PNG set and the HTML snippet to paste into your site's head.",
+    "meta": "Generate favicon.ico and the full PNG icon set (16–512px) from a single image, plus copy-paste HTML. Free, browser-based.",
+    "libs": [],
+    "steps": [
+      { "b": "Drop a square-ish image", "p": "At least 512×512 is ideal. Non-square images are centred and fitted." },
+      { "b": "Preview the sizes", "p": "See exactly how 16×16 in a browser tab will look — the honest test." },
+      { "b": "Download everything", "p": "favicon.ico with every useful size packed inside, the PNG set, and a snippet for your <head>." }
+    ],
+    "faq": [
+      { "q": "What sizes go inside the .ico?", "a": "16, 32 and 48 pixels — the set browsers actually use. The PNG set adds 180 (Apple) and 192/512 (Android) for completeness." },
+      { "q": "Where do I put these files?", "a": "Site root, next to index.html, then paste the snippet into your <head>. That's the whole ritual." }
+    ],
+    "related": ["svg-to-png", "image-resizer", "image-converter", "qr-generator"]
+  },
+  {
+    "slug": "svg-to-png",
+    "title": "SVG to PNG",
+    "h1": "Convert SVG to PNG",
+    "dek": "Rasterise vector files at any size you like — 16px icons or 4000px posters from the same SVG.",
+    "meta": "Convert SVG vector files to PNG at custom pixel sizes with transparent backgrounds. In your browser, no uploads, no dependencies.",
+    "libs": [],
+    "steps": [
+      { "b": "Drop one or more SVGs", "p": "The natural dimensions are read and shown." },
+      { "b": "Set the output size", "p": "Paste a target width, or a multiplier: 2×, 4× for retina- and poster-sized exports." },
+      { "b": "Download", "p": "PNG by default; JPG and WebP available where you don't need transparency." }
+    ],
+    "faq": [
+      { "q": "My SVG converted to a blank image — why?", "a": "SVGs that reference external images or fonts can't load them in the sandbox. Flatten those first (most editors can)." },
+      { "q": "Can I export with a background colour?", "a": "Yes — pick a background colour in the options, or leave it transparent." }
+    ],
+    "related": ["image-converter", "favicon-generator", "image-resizer", "pdf-to-png"]
+  },
+  {
+    "slug": "heic-to-jpg",
+    "title": "HEIC to JPG",
+    "h1": "Convert HEIC to JPG or PNG",
+    "dek": "The photos your iPhone insists on — converted to formats everything else in the world opens.",
+    "meta": "Convert iPhone HEIC/HEIF photos to JPG or PNG in your browser. Batch friendly, free, private — no uploads, no limits.",
+    "libs": ["heic2any.min.js"],
+    "steps": [
+      { "b": "Drop your HEIC photos", "p": "Straight off an iPhone, or a batch from Photos. Multiple files welcome." },
+      { "b": "Pick the format", "p": "JPG is the safe universal choice; PNG if you'll edit the result." },
+      { "b": "Convert and download", "p": "If there was motion or depth data, it's skipped — the still image is what gets converted." }
+    ],
+    "faq": [
+      { "q": "Why bother converting?", "a": "Windows tools, older editors and half the web treat HEIC like a foreign language. JPG opens everywhere, instantly." },
+      { "q": "Why is this conversion slower than the others?", "a": "HEIC decode is heavy, real work — a few seconds per photo rather than a blink. Worth it for not uploading your camera roll anywhere." }
+    ],
+    "related": ["image-converter", "image-compressor", "exif-viewer", "rotate-image"]
+  },
+  {
+    "slug": "tiff-to-png",
+    "title": "TIFF to PNG",
+    "h1": "Convert TIFF to PNG or JPG",
+    "dek": "Scanners love TIFF. Browsers don't. Bridge the gap without installing anything.",
+    "meta": "Convert TIFF files to PNG or JPG in your browser — including multi-page TIFFs, saved page by page. Free, private, no uploads.",
+    "libs": ["UTIF.js", "pako.min.js"],
+    "steps": [
+      { "b": "Drop your TIFF files", "p": "Single or multi-page; each page becomes its own image." },
+      { "b": "Choose the format", "p": "PNG keeps every pixel; JPG keeps your disk happy." },
+      { "b": "Download the pages", "p": "Multi-page archives arrive zipped." }
+    ],
+    "faq": [
+      { "q": "What kind of TIFFs are supported?", "a": "The common ones from scanners and photo tools. Exotic colour spaces may come out oddly — if so, tell the tool (contact page) and it can be looked at." },
+      { "q": "Can I keep it as TIFF?", "a": "The point is to escape TIFF, but if you need TIFF output, any image editor will re-save it from the PNG." }
+    ],
+    "related": ["image-converter", "pdf-to-png", "heic-to-jpg", "image-compressor"]
+  },
+  {
+    "slug": "image-to-base64",
+    "title": "Image to Base64",
+    "h1": "Convert an image to Base64",
+    "dek": "Data-URI output with copy-ready snippets for HTML, CSS and Markdown — for when you want the image inline.",
+    "meta": "Convert any image to a Base64 data URI, with ready-made HTML, CSS and Markdown snippets. Browser-only, instant, no uploads.",
+    "libs": [],
+    "steps": [
+      { "b": "Drop an image", "p": "Keep it small — data URIs live inside your code, so every byte is paid for twice." },
+      { "b": "Copy the flavour you need", "p": "Raw Base64, an HTML img tag, a CSS background, or Markdown." },
+      { "b": "Paste into your project", "p": "No files to keep. That's the point and the trade." }
+    ],
+    "faq": [
+      { "q": "When is Base64 a good idea?", "a": "Tiny icons and UI bullets that save a request. Not photos — the same bytes inflated by a third, in a file you can't cache separately." },
+      { "q": "Is anything sent anywhere?", "a": "No. The conversion is base arithmetic the browser does locally." }
+    ],
+    "related": ["base64-to-image", "image-converter", "svg-to-png", "qr-generator"]
+  },
+  {
+    "slug": "base64-to-image",
+    "title": "Base64 to Image",
+    "h1": "Convert Base64 back to an image",
+    "dek": "Pasted data URI or raw Base64 — decoded into a real image file you can save.",
+    "meta": "Decode Base64 or data-URI strings back into PNG, JPG or WebP image files. See the preview before you save. No uploads, free.",
+    "libs": [],
+    "steps": [
+      { "b": "Paste the Base64", "p": "With or without the data:image/... header — the tool works either way." },
+      { "b": "Check the preview", "p": "If it's valid, you'll see the image. If not, you'll see exactly what's wrong with the input." },
+      { "b": "Save the file", "p": "The original format is detected from the data itself." }
+    ],
+    "faq": [
+      { "q": "It says the Base64 is invalid. Now what?", "a": "Usual suspects: the string is truncated, wrapped in quotes, or has stray whitespace mid-string. Everything after 'base64,' is the part that matters." },
+      { "q": "Can it decode huge strings?", "a": "Yes, within browser memory — several MB of Base64 is routine." }
+    ],
+    "related": ["image-to-base64", "base64-text", "qr-generator", "image-converter"]
+  },
+  {
+    "slug": "exif-viewer",
+    "title": "EXIF Viewer",
+    "h1": "View photo metadata",
+    "dek": "See what your camera wrote into the file: the camera, settings, dates — and the GPS coordinates, which surprise most people.",
+    "meta": "View EXIF metadata in JPG photos — camera, settings, timestamps, and GPS location. Read privately in your browser. No uploads.",
+    "libs": ["piexif.js"],
+    "steps": [
+      { "b": "Drop a photo", "p": "JPG and HEIC-JPG photos carry the most metadata." },
+      { "b": "Read the panels", "p": "Camera and exposure, date and time, GPS coordinates (with a map link if present), plus the full tag table." },
+      { "b": "Decide what to share", "p": "Sharing the photo with the location attached was probably not the plan. The EXIF remover handles that." }
+    ],
+    "faq": [
+      { "q": "What's the GPS thing about?", "a": "Most phones embed the exact location in every photo by default. Post that picture of your home and you've posted your home's coordinates." },
+      { "q": "No metadata shown — why?", "a": "The photo was already stripped (social apps remove it), or it's a format that doesn't carry EXIF, like plain PNG." }
+    ],
+    "related": ["exif-remover", "image-compressor", "heic-to-jpg", "image-converter"]
+  },
+  {
+    "slug": "exif-remover",
+    "title": "Remove EXIF Data",
+    "h1": "Strip metadata from photos",
+    "dek": "One click between a photo and the internet. Removes camera details, timestamps and GPS location — pixels untouched.",
+    "meta": "Remove EXIF and GPS metadata from JPG photos before sharing them. Batch friendly, browser-based, free. Your photos stay yours.",
+    "libs": ["piexif.js"],
+    "steps": [
+      { "b": "Drop your photos", "p": "Batch works — holiday albums welcome." },
+      { "b": "Optionally, check first", "p": "The EXIF viewer shows exactly what's about to be removed, if you're curious." },
+      { "b": "Strip and download", "p": "Fresh files with no EXIF. They look exactly the same — only the hidden metadata goes away." }
+    ],
+    "faq": [
+      { "q": "Does stripping change how the photo looks?", "a": "No. Orientation is baked in correctly before removal, so the photo won't suddenly rotate weirdly in other apps." },
+      { "q": "Should I remove metadata from every photo?", "a": "Any photo headed for a public place — marketplaces, forums, social media after they've re-compressed it — is safer stripped. Your own archive copy can keep everything." }
+    ],
+    "related": ["exif-viewer", "image-compressor", "watermark-image", "pdf-metadata"]
+  }
+]

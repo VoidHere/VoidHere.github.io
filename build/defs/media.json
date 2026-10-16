@@ -1,0 +1,164 @@
+[
+  {
+    "slug": "video-to-frames",
+    "title": "Video to Frames",
+    "h1": "Convert video to image frames",
+    "dek": "MP4 or WebM in — a folder of PNG or JPG stills out. Every frame, or one every N seconds.",
+    "meta": "Extract PNG or JPG frames from MP4/WebM video in your browser — all frames or every N seconds. Free, no uploads, your video stays local.",
+    "libs": ["ffmpeg.js", "ffmpeg-util.js", "jszip.min.js"],
+    "steps": [
+      { "b": "Drop a video", "p": "MP4 and WebM are the well-trodden paths. Short clips finish fastest." },
+      { "b": "Choose the sampling", "p": "One frame per second is the sane default; 'every frame' for stop-motion work. Format: PNG for crispness, JPG for volume." },
+      { "b": "Extract and download", "p": "Frames arrive in a ZIP, named in order." }
+    ],
+    "faq": [
+      { "q": "The first use takes a while — why?", "a": "A 31 MB video engine has to load into the page first. It happens once per visit, on your machine, and it's the only big download the whole site has." },
+      { "q": "How long can the video be?", "a": "Guided by memory: a few minutes of 1080p is fine. For an hour of footage, a desktop video editor will be kinder to you." }
+    ],
+    "related": ["video-to-gif", "video-to-audio", "video-trimmer", "pdf-to-jpg"]
+  },
+  {
+    "slug": "video-to-gif",
+    "title": "Video to GIF",
+    "h1": "Convert video to GIF",
+    "dek": "Properly palette-tuned GIFs — the kind that don't look like a weather radar from 1998.",
+    "meta": "Turn a video clip into a clean, palette-optimised GIF in your browser. Set the frame rate, size and range. Free, no uploads.",
+    "libs": ["ffmpeg.js", "ffmpeg-util.js"],
+    "steps": [
+      { "b": "Drop a video", "p": "Trim to the good bit first — GIFs are heavy, so seconds, not minutes." },
+      { "b": "Set the feel", "p": "12–15 fps loops read as smooth. 320–480px wide is the useful size range." },
+      { "b": "Convert and download", "p": "The palette pass is done twice so the colours come out clean instead of muddy." }
+    ],
+    "faq": [
+      { "q": "Why do GIFs get so big?", "a": "It's a 1987 format with no real compression — every frame is a full picture. That's why the size settings matter here more than anywhere else on this site." },
+      { "q": "GIF or MP4 — which should I share?", "a": "Every platform since 2010 takes MP4, at a tenth of the size. GIF survives where videos autoplay silently (chat apps, forums), which is its one advantage." }
+    ],
+    "related": ["video-to-frames", "video-compressor", "video-converter", "image-converter"]
+  },
+  {
+    "slug": "video-to-audio",
+    "title": "Video to Audio",
+    "h1": "Extract audio from video",
+    "dek": "Pull the soundtrack out of a video — MP3 for everything, WAV when it needs to be raw.",
+    "meta": "Extract MP3, WAV or OGG audio from any video in your browser. Choose the quality, keep it lossless. Free, offline, no uploads.",
+    "libs": ["ffmpeg.js", "ffmpeg-util.js"],
+    "steps": [
+      { "b": "Drop a video", "p": "Anything the engine can read — MP4, WebM, MOV, and friends." },
+      { "b": "Choose format and quality", "p": "192 kbps MP3 is transparent for most ears. 320 for music. WAV for editing or archiving." },
+      { "b": "Download the audio", "p": "The video file itself is untouched; you just gain the soundtrack." }
+    ],
+    "faq": [
+      { "q": "Can I extract from a protected or rented video?", "a": "No, and the tool won't pretend otherwise — copy protection exists precisely to stop this step, and the engine will simply fail to read it." },
+      { "q": "Which quality should I pick?", "a": "Voice: 128 is plenty. Music: 192–320. Archiving or editing: WAV, no question." }
+    ],
+    "related": ["audio-converter", "audio-trimmer", "video-trimmer", "video-to-frames"]
+  },
+  {
+    "slug": "video-compressor",
+    "title": "Compress Video",
+    "h1": "Compress a video",
+    "dek": "Big video, smaller file, still watchable. Dial in the quality and see the savings before you commit.",
+    "meta": "Compress MP4 and WebM video with quality control and optional resizing. Runs locally in your browser — no uploads, no waiting queues.",
+    "libs": ["ffmpeg.js", "ffmpeg-util.js"],
+    "steps": [
+      { "b": "Drop a video", "p": "The current size is your baseline." },
+      { "b": "Pick a quality level", "p": "High keeps things visually identical. Medium is the sweet spot — often half the size. Low is for 'send it over any connection'." },
+      { "b": "Optionally shrink the frame", "p": "720p is plenty for messaging and most viewing. Then compress and compare the numbers." }
+    ],
+    "faq": [
+      { "q": "Why is my compression slow?", "a": "Video compression is genuinely heavy work, and this runs on your CPU rather than a rack of servers. A one-minute clip at Medium takes a couple of minutes." },
+      { "q": "Will the audio survive?", "a": "Yes, with a modest audio bitrate so it doesn't undo the savings." }
+    ],
+    "related": ["video-converter", "video-trimmer", "video-to-gif", "mute-video"]
+  },
+  {
+    "slug": "video-trimmer",
+    "title": "Trim Video",
+    "h1": "Trim a video",
+    "dek": "Keep the goal, cut the walk-back. Set the start and end seconds and take exactly that slice.",
+    "meta": "Trim MP4 and WebM video clips by start and end time, browser-based and fully offline. No re-encoding headaches, no uploads.",
+    "libs": ["ffmpeg.js", "ffmpeg-util.js"],
+    "steps": [
+      { "b": "Drop a video", "p": "The duration is read out so you can plan the cut." },
+      { "b": "Set start and end", "p": "In seconds, or in minutes-and-seconds format, e.g. 1:30. The preview player helps you find the moment." },
+      { "b": "Trim and download", "p": "You get exactly the slice, fast, because the untouched parts aren't re-encoded." }
+    ],
+    "faq": [
+      { "q": "Does trimming re-encode the video?", "a": "Where possible, no — the file is cut at keyframes and copied as-is, which is fast and lossless. Precision trimming of a couple of seconds may trigger a light re-encode." },
+      { "q": "Can I save multiple clips in one go?", "a": "One clip per pass for now; run the tool again on the same video for the next highlight." }
+    ],
+    "related": ["video-compressor", "video-to-gif", "audio-trimmer", "mute-video"]
+  },
+  {
+    "slug": "video-converter",
+    "title": "Convert Video",
+    "h1": "Convert video formats",
+    "dek": "MP4, WebM and MOV — the three the web actually speaks. Swap between them without a desktop app.",
+    "meta": "Convert video between MP4, WebM and MOV in your browser. Choose codec and quality. Free, private, no uploads or accounts.",
+    "libs": ["ffmpeg.js", "ffmpeg-util.js"],
+    "steps": [
+      { "b": "Drop a video", "p": "Almost any common format is readable." },
+      { "b": "Pick the target", "p": "MP4 (H.264) is the universal choice. WebM is web-native and smaller for screen recordings. MOV for Apple editing chains." },
+      { "b": "Convert and download", "p": "Quality presets keep it simple: High, Balanced, Small." }
+    ],
+    "faq": [
+      { "q": "Why can't I convert to AVI or WMV?", "a": "Those formats are comfortably past their usefulness for the web, and the engine here is kept lean on purpose. MP4 has been the sane answer since 2008." },
+      { "q": "What's the best format for a website?", "a": "MP4/H.264 for compatibility everywhere, WebM as a smaller second source if you want to serve the best to modern browsers." }
+    ],
+    "related": ["video-compressor", "video-to-gif", "video-to-audio", "audio-converter"]
+  },
+  {
+    "slug": "mute-video",
+    "title": "Mute Video",
+    "h1": "Remove audio from a video",
+    "dek": "Delete the soundtrack without touching a single frame — smallest possible operation, cleanest possible result.",
+    "meta": "Strip the audio track from MP4 or WebM video and keep the picture bit-for-bit. Browser-based, instant where possible, no uploads.",
+    "libs": ["ffmpeg.js", "ffmpeg-util.js"],
+    "steps": [
+      { "b": "Drop a video", "p": "The audio stream is detected and shown." },
+      { "b": "Mute it", "p": "The video data isn't re-encoded — the picture stays exactly as it was." },
+      { "b": "Download", "p": "A silent version, usually produced within seconds." }
+    ],
+    "faq": [
+      { "q": "Is the video quality affected?", "a": "No. This removes an entire stream; the picture stream is copied untouched, byte for byte." },
+      { "q": "Can I replace the audio instead?", "a": "Not here — muting is the safe, common operation. Mixing new audio in deserves a proper editor." }
+    ],
+    "related": ["video-to-audio", "video-trimmer", "video-compressor", "audio-converter"]
+  },
+  {
+    "slug": "audio-converter",
+    "title": "Audio Converter",
+    "h1": "Convert audio formats",
+    "dek": "MP3, WAV, OGG, M4A, FLAC — the everyday roster, converted both ways, at the quality you choose.",
+    "meta": "Convert audio between MP3, WAV, OGG, M4A and FLAC in your browser. Bitrate control, batch friendly, no uploads. Free.",
+    "libs": ["ffmpeg.js", "ffmpeg-util.js"],
+    "steps": [
+      { "b": "Drop your audio files", "p": "Batch is fine — an album of WAVs to MP3 takes a few minutes, unattended." },
+      { "b": "Choose format and bitrate", "p": "MP3 at 192 for general use; WAV or FLAC when something downstream needs lossless." },
+      { "b": "Convert and download", "p": "Files come out one by one, or all together in a ZIP." }
+    ],
+    "faq": [
+      { "q": "Can conversion add quality back?", "a": "No — a 128 kbps MP3 re-saved at 320 is still 128 kbps of real information in a bigger coat. Lossless outputs from lossless inputs are the only honest upgrade." },
+      { "q": "What about M4A and AAC?", "a": "Both work. M4A is AAC in an Apple-shaped box — common from phones and voice memos." }
+    ],
+    "related": ["audio-trimmer", "video-to-audio", "mute-video", "video-converter"]
+  },
+  {
+    "slug": "audio-trimmer",
+    "title": "Trim Audio",
+    "h1": "Trim audio",
+    "dek": "Cut a ringtone out of a song, a clip out of a lecture, a mistake out of a recording.",
+    "meta": "Trim MP3, WAV, OGG and M4A audio by start and end time, right in your browser. No upload, no re-download from a server. Free.",
+    "libs": ["ffmpeg.js", "ffmpeg-util.js"],
+    "steps": [
+      { "b": "Drop an audio file", "p": "The duration and format are shown immediately." },
+      { "b": "Set the cut", "p": "Start and end in seconds or m:ss. Play your original alongside to find the spot." },
+      { "b": "Trim and download", "p": "You get the clip in the same format as the original." }
+    ],
+    "faq": [
+      { "q": "Can I fade in or out?", "a": "Not built in — trimming is a clean cut by design. A DAW or Audacity will do fades better than a checkbox here ever would." },
+      { "q": "Does trimming an MP3 re-compress it?", "a": "Only the cut edges are re-encoded, the frames between are copied. In practice: inaudible." }
+    ],
+    "related": ["audio-converter", "video-trimmer", "video-to-audio", "mute-video"]
+  }
+]

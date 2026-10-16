@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — DigitPDF</title>
+<meta name="description" content="Why DigitPDF exists, how browser-based file tools actually work, what's under the hood — and an honest list of what this site will never do.">
+<link rel="canonical" href="{{SITEURL}}/about.html">
+<meta property="og:site_name" content="DigitPDF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About — DigitPDF">
+<meta property="og:description" content="Why DigitPDF exists, how browser-based file tools actually work, what's under the hood — and an honest list of what this site will never do.">
+<meta property="og:url" content="{{SITEURL}}/about.html">
+<meta property="og:image" content="{{SITEURL}}/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — DigitPDF">
+<meta name="twitter:description" content="Why DigitPDF exists, how browser-based file tools actually work, what's under the hood — and an honest list of what this site will never do.">
+<meta name="twitter:image" content="{{SITEURL}}/og-image.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/vendor/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/vendor/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/vendor/fonts/fonts.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+{{HEADER}}
+
+<main class="wrap" id="content">
+  <section class="tool-head">
+    <h1>About this place</h1>
+    <p class="dek">A toolbox with no lock on the door, because there's nothing inside worth locking.</p>
+  </section>
+
+  <section class="section prose">
+    <h2 id="how">How it actually works</h2>
+    <p>
+      When you drop a file onto one of these tools, nothing is sent anywhere. Your browser reads the file directly
+      from your disk using the same machinery it already uses to display images and play video. The file sits in
+      the page's own memory while a tool works on it, and the result is handed back to you as a fresh download.
+    </p>
+    <p>
+      That's the entire architecture. No upload, no queue, no "processing…" that depends on someone else's computer.
+      You can prove it yourself: load this site, unplug the network cable, and every tool keeps working. The only
+      thing that ever needs the network is your first visit — after that the browser has it all.
+    </p>
+    <p>
+      The upside of this design is privacy and reliability. The honest trade-off is speed on the heavy stuff.
+      Video compression and OCR are genuinely hard work, and one processor in a laptop is slower than a rack of
+      server CPUs. For everything else — PDFs, images, text — you won't notice a difference.
+    </p>
+
+    <h2 id="story">Why it exists</h2>
+    <p>
+      I ran into the same wall everyone does: needing to merge two PDFs, and being asked to create an account,
+      accept a cookie banner, and trust a company I'd never heard of with documents I'd never show a stranger.
+      That's a strange deal to accept for a task a browser can do alone.
+    </p>
+    <p>
+      So this is the version of that site I wanted to find. It runs in Kasur, Pakistan from a single desk, it
+      doesn't want your email, and it will never email you. If it saves you an afternoon, that's the payment
+      it was built for.
+    </p>
+
+    <h2 id="wont">What this site will never do</h2>
+    <p>The limits matter as much as the features, so here's the straight list:</p>
+    <ul>
+      <li><b>Never upload your files.</b> There is no upload code anywhere in it, which is why the privacy page is one screen long.</li>
+      <li><b>Never watermarks your output.</b> A tool that marks your work until you pay isn't a tool, it's a hostage situation.</li>
+      <li><b>Never asks for an account.</b> There is nothing to log into, so there is nothing to log.</li>
+      <li><b>Never runs ads or trackers.</b> No analytics scripts, no embedded fonts from other companies, no pixel anything.</li>
+      <li><b>Never promises layout-perfect Office conversion.</b> PDF → Word with formatting intact is a hard research problem. The text export here is honest about that instead of pretending.</li>
+    </ul>
+
+    <h2 id="under">What's under the hood</h2>
+    <p>
+      The tools are assembled from excellent open-source engines, all of them running locally. Credit where it's due:
+    </p>
+    <ul>
+      <li><b>PDF-lib</b> and <b>pdf.js</b> — building and rendering PDFs (Mozilla's renderer, the one in Firefox)</li>
+      <li><b>ffmpeg.wasm</b> — the video and audio engine, a full ffmpeg compiled to WebAssembly</li>
+      <li><b>tesseract.js</b> — the OCR engine</li>
+      <li><b>JSZip</b>, <b>fflate</b> — archives and compression</li>
+      <li><b>SheetJS</b> — spreadsheets; <b>marked</b> and <b>turndown</b> — Markdown both ways; <b>jsdiff</b> — text comparison</li>
+      <li><b>piexifjs</b> (metadata), <b>heic2any</b> (iPhone photos), <b>UTIF</b> (TIFF), <b>qrcode-generator</b>, <b>jsQR</b>, <b>JsBarcode</b></li>
+    </ul>
+    <p>
+      All of these are permissively licensed and shipped with the site — your browser fetches them from this
+      same domain, never from a CDN. One less company learning what tools you use.
+    </p>
+
+    <h2 id="limits">Where the honest limits are</h2>
+    <ul>
+      <li><b>Password-protected PDFs</b> can't be opened by a browser-based tool. Unlock them first wherever you set the password.</li>
+      <li><b>Office files to PDF</b> (Word, Excel, PowerPoint in → PDF out) needs a full office engine. The text-only PDF → Word converter is there; the reverse waits for a properly licensed engine.</li>
+      <li><b>Gigabyte-scale video</b> will hit your machine's memory before it hits any limit of the software. For feature-length footage, a desktop editor is the right tool and this site won't pretend otherwise.</li>
+      <li><b>Everything is English-only</b> for now — including OCR, which supports one language at a time by design, keeping the download small.</li>
+    </ul>
+
+    <h2 id="contact-hint">Something missing?</h2>
+    <p>
+      If a tool misbehaves or a task is missing from the toolbox, the <a href="/contact.html">contact page</a>
+      has a real address attached to a real person. Feature requests are read, and the honest ones get built.
+    </p>
+  </section>
+</main>
+
+{{FOOTER}}
+<script src="/js/core.js" defer></script>
+</body>
+</html>

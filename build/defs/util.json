@@ -1,0 +1,183 @@
+[
+  {
+    "slug": "qr-generator",
+    "title": "QR Code Generator",
+    "h1": "Generate QR codes",
+    "dek": "Links, Wi-Fi passwords, plain text — as PNG or SVG, in any colour, at any size worth needing.",
+    "meta": "Create QR codes for links, text or Wi-Fi in custom colours and sizes — download as PNG or SVG. Free, browser-based, forever.",
+    "libs": ["qrcode.js"],
+    "steps": [
+      { "b": "Type or paste the content", "p": "A URL, a phone number, Wi-Fi credentials in their standard format, an SMS template, a chunk of text." },
+      { "b": "Style it", "p": "Foreground and background colours, output size, and the quiet-zone margin that scanners quietly need." },
+      { "b": "Download PNG or SVG", "p": "SVG for printing at any size without a single pixel of blur." }
+    ],
+    "faq": [
+      { "q": "Low contrast colours — bad idea?", "a": "Dark-on-light with real contrast scans reliably; light-on-dark and low-contrast pairs fail on many phone cameras. The tool warns if you drift into risky territory." },
+      { "q": "How much text fits?", "a": "Comfortably: a few hundred characters. At that point the code gets dense and needs to be printed bigger to scan from a distance." }
+    ],
+    "related": ["qr-reader", "barcode-generator", "password-generator", "uuid-generator"]
+  },
+  {
+    "slug": "qr-reader",
+    "title": "QR Code Reader",
+    "h1": "Read a QR code from an image",
+    "dek": "Point it at a screenshot or photo of a QR code and get the content out — no phone needed.",
+    "meta": "Decode QR codes from screenshots or photos — links, text, Wi-Fi details — without a phone camera. Free, private, in-browser.",
+    "libs": ["jsQR.js"],
+    "steps": [
+      { "b": "Drop an image with a QR code", "p": "A clean screenshot is easiest; photos work if the code fills a fair part of the frame." },
+      { "b": "The content appears", "p": "Links are clickable, text is copyable, Wi-Fi strings are broken into readable parts." },
+      { "b": "Stay cautious with links", "p": "The preview lets you read a URL before you visit it — the entire reason to decode one somewhere safe." }
+    ],
+    "faq": [
+      { "q": "Can I use my webcam?", "a": "This page reads images, not cameras — most phones already do the camera dance natively. Screenshot the code and drop it here." },
+      { "q": "It didn't find a code — why?", "a": "Glare, blur, or a code too small in frame. Crop tighter so the code fills the image and try again." }
+    ],
+    "related": ["qr-generator", "barcode-generator", "ocr", "base64-to-image"]
+  },
+  {
+    "slug": "barcode-generator",
+    "title": "Barcode Generator",
+    "h1": "Generate barcodes",
+    "dek": "CODE128, EAN and friends as crisp PNGs — for product labels, inventory stickers and shelf tags.",
+    "meta": "Generate barcodes (CODE128, EAN-13, UPC, CODE39, ITF) as high-resolution PNGs in your browser. Free, private, no sign-up.",
+    "libs": ["JsBarcode.all.min.js"],
+    "steps": [
+      { "b": "Enter the content", "p": "Numbers for retail formats, anything-as-is for CODE128. The tool validates as you type." },
+      { "b": "Pick a format", "p": "CODE128 for general use; EAN-13 and UPC-A for retail products, where the check digit is handled for you." },
+      { "b": "Download the PNG", "p": "Rendered at print resolution — 2–3 pixels per module scans well from a phone." }
+    ],
+    "faq": [
+      { "q": "Which format for retail products?", "a": "EAN-13 for most of the world, UPC-A for North America. Both need exactly the right digit count — the tool tells you when you're off." },
+      { "q": "Will supermarket scanners read these?", "a": "Yes, at print quality. Print at 300 DPI or higher, keep bars black on white, and don't stretch the proportions." }
+    ],
+    "related": ["qr-generator", "qr-reader", "lorem-ipsum", "unit-converter"]
+  },
+  {
+    "slug": "zip-creator",
+    "title": "Create ZIP",
+    "h1": "Create a ZIP archive",
+    "dek": "Gather loose files — or a whole folder — into one tidy ZIP, with per-file compression you can set.",
+    "meta": "Create ZIP archives from files or entire folders in your browser, with compression levels and no uploads. Perfect for batches and email.",
+    "libs": ["jszip.min.js"],
+    "steps": [
+      { "b": "Drop files, or choose a folder", "p": "Folder mode keeps the whole structure inside the ZIP — subdirectories and all." },
+      { "b": "Set the compression", "p": "Maximum for documents, fast for photos and anything already compressed." },
+      { "b": "Download the ZIP", "p": "Named how you like, sized how you see — the final size is shown before download." }
+    ],
+    "faq": [
+      { "q": "How much will it compress?", "a": "Text, code and documents shrink a lot. JPGs, MP4s and other already-compressed files barely move — the ZIP is still worth it for bundling, not size." },
+      { "q": "How big can it be?", "a": "Memory-bound: a couple of GB of files is realistic on a modern machine." }
+    ],
+    "related": ["zip-extractor", "gzip-tool", "image-to-base64", "hash-generator"]
+  },
+  {
+    "slug": "zip-extractor",
+    "title": "Extract ZIP",
+    "h1": "Extract a ZIP archive",
+    "dek": "Open a ZIP and take what you need — the whole thing, or only the files you actually wanted.",
+    "meta": "Open ZIP archives in your browser, preview and pick individual files, or extract everything. No uploads — your archive stays local.",
+    "libs": ["jszip.min.js"],
+    "steps": [
+      { "b": "Drop a ZIP file", "p": "The contents list appears with folder structure and sizes." },
+      { "b": "Browse inside", "p": "Pull out one file, or a selection — no need to unpack a 200-file archive to reach one PDF." },
+      { "b": "Download", "p": "Individual files directly, or everything as a fresh ZIP if you want the structure kept." }
+    ],
+    "faq": [
+      { "q": "Other archive formats?", "a": "ZIP is what this reads — the rest of the world's RAR/7z files will need a desktop tool; they're mostly compressed data with more exotic algorithms." },
+      { "q": "What about password-protected ZIPs?", "a": "Not supported — and honestly, encryption worth having is worth the desktop tool that handles it properly." }
+    ],
+    "related": ["zip-creator", "gzip-tool", "excel-converter", "image-converter"]
+  },
+  {
+    "slug": "gzip-tool",
+    "title": "Gzip / Gunzip",
+    "h1": "Compress or decompress GZIP",
+    "dek": "The humble .gz — pack a file or text into gzip format, or open one back up for reading.",
+    "meta": "Compress files and text to GZIP format or decompress .gz files right in your browser. Fast, private, nothing uploaded anywhere.",
+    "libs": ["fflate.js"],
+    "steps": [
+      { "b": "Drop a .gz file or paste text", "p": "Log files, exports, API responses saved via curl — all common in the wild." },
+      { "b": "Pick the direction", "p": "Decompress .gz to see its contents, or compress text/files into a .gz." },
+      { "b": "Download or copy", "p": "The decompressed content lands as a file, ready for a text editor." }
+    ],
+    "faq": [
+      { "q": "Is .gz the same as .zip?", "a": "No — gzip compresses one stream, no file names, no archive. .zip bundles several files. The tools here each do what their format does." },
+      { "q": "A .tgz file — can this open it?", "a": "Not here; .tgz is gzip wrapped around a tar archive, and needs archive handling first. If it matters, say so via the contact page." }
+    ],
+    "related": ["zip-creator", "zip-extractor", "hash-generator", "text-cleaner"]
+  },
+  {
+    "slug": "ocr",
+    "title": "OCR",
+    "h1": "Read text from images and scans",
+    "dek": "Screenshots, photos of paper, scanned PDFs — pulled into selectable, searchable text by OCR that runs on your device.",
+    "meta": "Extract text from images and scanned PDFs with on-device OCR. English supported, private — scans never leave your browser.",
+    "libs": ["tesseract.min.js", "pdf.min.js"],
+    "steps": [
+      { "b": "Drop an image or scanned PDF", "p": "PNG, JPG or a PDF — scanned pages are rendered and read page by page." },
+      { "b": "Let it read", "p": "First use downloads the recognition engine (~11 MB, once). Then it works through the pages, with progress shown." },
+      { "b": "Take the text", "p": "Copy it, download as .txt, and fix the inevitable couple of misreads — 'rn' versus 'm' remains a human specialty." }
+    ],
+    "faq": [
+      { "q": "Which languages?", "a": "English for now. More languages mean more megabytes, so they're added one at a time rather than all at once." },
+      { "q": "How accurate is it?", "a": "Clean digital renders and sharp scans: excellent, better than 99% on normal text. Phone photos of curved paper: entirely readable, with a few corrections needed." },
+      { "q": "Is the text going anywhere?", "a": "No. Recognition runs in the tab, on your machine — which is also why it takes real seconds instead of a server's instant score. The trade is understood and accepted here." }
+    ],
+    "related": ["pdf-to-text", "pdf-to-word", "pdf-to-jpg", "text-cleaner"]
+  },
+  {
+    "slug": "unit-converter",
+    "title": "Unit Converter",
+    "h1": "Convert units",
+    "dek": "Length, mass, temperature, volume, area, speed, data — with the answer appearing as you type.",
+    "meta": "Convert length, weight, temperature, volume, area, speed and data units instantly. Clean browser tool, free, no ads or uploads.",
+    "libs": [],
+    "steps": [
+      { "b": "Pick a category", "p": "Seven shelves of units, from millimetres to nautical miles." },
+      { "b": "Type the value", "p": "Both directions convert live; the factor used is shown for doubters and students." },
+      { "b": "Copy the answer", "p": "Full precision shown, sensible rounding applied." }
+    ],
+    "faq": [
+      { "q": "Why is Fahrenheit↔Celsius different?", "a": "Temperature has an offset, not just a multiplier — 0° doesn't mean 'no temperature'. It's handled correctly, unlike the multiplying-by-1.8 school of conversion." },
+      { "q": "Data units — 1024 or 1000?", "a": "Both shown where it matters: decimal (1000, what drive makers print) and binary (1024, what the file system means). The eternal discrepancy, finally on speaking terms." }
+    ],
+    "related": ["number-base-converter", "timestamp-converter", "color-converter", "lorem-ipsum"]
+  },
+  {
+    "slug": "number-base-converter",
+    "title": "Number Base Converter",
+    "h1": "Convert number bases",
+    "dek": "Binary, octal, decimal, hex — any of them to any of them, with the working shown.",
+    "meta": "Convert between binary, octal, decimal and hexadecimal — or any base up to 36. Steps shown as well as results. Free, private.",
+    "libs": [],
+    "steps": [
+      { "b": "Type a number", "p": "In whichever base you have it — set the input base first." },
+      { "b": "All bases update live", "p": "Binary, octal, decimal and hex at once, plus a custom base box for base 3, base 32 and the rest." },
+      { "b": "Copy in the format you need", "p": "Plain, or with 0x/0b prefixes for pasting into code." }
+    ],
+    "faq": [
+      { "q": "Why binary for 255 is long — got a shortcut?", "a": "That's what 255 is in binary, and the box shows the nibble grouping (1111 1111) to make it readable. Hex exists precisely because nobody enjoys reading raw binary." },
+      { "q": "Negative numbers?", "a": "The sign is kept on the output; two's-complement representation is a deeper rabbit hole left to your language of choice." }
+    ],
+    "related": ["timestamp-converter", "color-converter", "unit-converter", "hash-generator"]
+  },
+  {
+    "slug": "color-converter",
+    "title": "Color Converter",
+    "h1": "Convert colours",
+    "dek": "HEX, RGB, HSL — pasted from anywhere, in every format you might need next, with a live swatch.",
+    "meta": "Convert colours between HEX, RGB, HSL and more with live preview. Includes contrast checks and shade steps. Free and private.",
+    "libs": [],
+    "steps": [
+      { "b": "Paste a colour", "p": "Any format — #3B82F6, rgb(59,130,246), hsl(217,91%,60%) — detected automatically." },
+      { "b": "Use any output", "p": "Every format shown in copyable rows, plus a live swatch so your eyes confirm what the numbers say." },
+      { "b": "Check it against white and black", "p": "Contrast ratios are shown for both, with the WCAG threshold marked — the quiet accessibility service this tool insists on." }
+    ],
+    "faq": [
+      { "q": "Why do the HSL numbers look different from my design app?", "a": "HSL is a transform, not storage. A designer's picker can be HSL-based while the file stores HEX; the actual colour is identical." },
+      { "q": "What contrast ratio do I need?", "a": "4.5:1 for normal text, 3:1 for large text — AA. The card says whether you're above or below, so you find out here rather than from an accessibility audit." }
+    ],
+    "related": ["number-base-converter", "unit-converter", "image-to-base64", "qr-generator"]
+  }
+]

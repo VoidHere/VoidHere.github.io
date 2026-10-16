@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word Counter — free, private, in your browser | DigitPDF</title>
+<meta name="description" content="Count words, characters, sentences and paragraphs with live stats and reading time. Free, private, works offline in your browser.">
+<link rel="canonical" href="https://digitpdf.io/word-counter.html">
+<meta property="og:site_name" content="DigitPDF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Word Counter — DigitPDF">
+<meta property="og:description" content="Count words, characters, sentences and paragraphs with live stats and reading time. Free, private, works offline in your browser.">
+<meta property="og:url" content="https://digitpdf.io/word-counter.html">
+<meta property="og:image" content="https://digitpdf.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Word Counter — DigitPDF">
+<meta name="twitter:description" content="Count words, characters, sentences and paragraphs with live stats and reading time. Free, private, works offline in your browser.">
+<meta name="twitter:image" content="https://digitpdf.io/og-image.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/vendor/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/vendor/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/vendor/fonts/fonts.css">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "DigitPDF Word Counter", "url": "https://digitpdf.io/word-counter.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Count words, characters, sentences and paragraphs with live stats and reading time. Free, private, works offline in your browser."}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://digitpdf.io/"}, {"@type": "ListItem", "position": 2, "name": "Text & code", "item": "https://digitpdf.io/index.html#text"}, {"@type": "ListItem", "position": 3, "name": "Word Counter"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is reading time calculated?", "acceptedAnswer": {"@type": "Answer", "text": "220 words per minute — the widely used average for adults reading on screens. Speech runs slower; writing runs slower still."}}, {"@type": "Question", "name": "Does it store my text?", "acceptedAnswer": {"@type": "Answer", "text": "No. It exists in the page while you're on it and nowhere else the moment you leave."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#app">Skip to the tool</a>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="brand" href="/index.html" aria-label="DigitPDF home">
+      <span class="brand__mark" aria-hidden="true">✱</span>
+      <span class="brand__text">digitpdf<span class="brand__sub">file tools · on your device</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button>
+    <nav class="nav" aria-label="Main">
+      <a href="/index.html#toolbox">Toolbox</a>
+      <a href="/all-tools.html">All 69 tools</a>
+      <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
+      <button class="theme-btn" type="button" aria-label="Switch between light and dark theme">
+        <svg class="ic i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="ic i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/index.html">Home</a><span class="sep">/</span>
+    <a href="/index.html#text">Text &amp; code</a><span class="sep">/</span>
+    <span aria-current="page">Word Counter</span>
+  </nav>
+
+  <section class="tool-head">
+    <h1>Count words and characters</h1>
+    <p class="dek">Words, characters, sentences, paragraphs and an honest reading-time estimate — updating as you type.</p>
+    <div class="trust">
+      <span class="pill pill--ok"><svg class="ic"><use href="#i-shield"/></svg>Runs on your device</span>
+      <span class="pill"><svg class="ic"><use href="#i-lock"/></svg>No uploads, ever</span>
+      <span class="pill"><svg class="ic"><use href="#i-bolt"/></svg>Free, no account</span>
+    </div>
+  </section>
+
+  <section class="board">
+    <div id="app" class="board__main"></div>
+    <aside class="board__side" id="side">
+      <div class="panel">
+        <span class="label">The fine print</span>
+        <p style="font-size:13.5px;color:var(--muted)">
+          This page has no server behind it. Files are read, changed and re-built by your own browser —
+          then they disappear when you close the tab. That's the whole privacy policy, applied.
+        </p>
+      </div>
+      <div class="panel" id="side-extra"></div>
+    </aside>
+  </section>
+
+  <hr class="rule-d" style="margin:44px 0 0">
+
+  <section class="section" id="how">
+    <h2>How it works</h2>
+    <ol class="steps">    <li><div><b>Paste or type</b><p>Live counters update as you go.</p></div></li>
+    <li><div><b>Read the stats</b><p>Words, characters (with and without spaces), sentences, paragraphs, and reading time at 220 words per minute.</p></div></li>
+    <li><div><b>Trim to a limit</b><p>Set a target — 280 for a tweet, 160 for a meta description — and see the remainder counted down.</p></div></li></ol>
+  </section>
+
+  <hr class="rule-d">
+
+  <section class="section" id="faq">
+    <h2>Questions people actually ask</h2>
+    <div class="faq">      <details><summary>How is reading time calculated?<svg class="ic ic--sm" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="a"><p>220 words per minute — the widely used average for adults reading on screens. Speech runs slower; writing runs slower still.</p></div></details>
+      <details><summary>Does it store my text?<svg class="ic ic--sm" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="a"><p>No. It exists in the page while you&#x27;re on it and nowhere else the moment you leave.</p></div></details></div>
+  </section>
+
+  <hr class="rule-d">
+
+  <section class="section" id="related">
+    <h2>Do more with it</h2>
+    <p class="cat-dek">Tools that pick up where this one leaves off.</p>
+    <div class="tgrid"><a class="tcard" href="/case-converter.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg></span><span class="tcard__t">Case Converter</span><span class="tcard__d">UPPER, lower, Title, Sentence, camelCase, snake_case, kebab-case and more — one…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+<a class="tcard" href="/text-cleaner.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg></span><span class="tcard__t">Clean Up Text</span><span class="tcard__d">The tidy-up pass: remove duplicate lines, sort, trim whitespace, kill empty…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+<a class="tcard" href="/lorem-ipsum.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg></span><span class="tcard__t">Lorem Ipsum Generator</span><span class="tcard__d">Classic Latin or plain-English filler, in paragraphs, sentences or word counts…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+<a class="tcard" href="/diff-checker.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg></span><span class="tcard__t">Diff Checker</span><span class="tcard__d">Paste two versions, see exactly what changed — line by line, or word by word for…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/index.html" style="margin-bottom:14px">
+          <span class="brand__mark" aria-hidden="true">✱</span>
+          <span class="brand__text">digitpdf</span>
+        </a>
+        <p style="font-size:13.5px;color:var(--muted);max-width:300px">
+          69 free file tools that run entirely in your browser. Nothing is uploaded, because there is nowhere to upload it to. Made by a person, not a platform.
+        </p>
+      </div>
+      <div>
+        <h3>The toolbox</h3>
+        <ul>
+          <li><a href="/index.html#pdf">PDF tools</a></li>
+          <li><a href="/index.html#image">Image tools</a></li>
+          <li><a href="/index.html#media">Video &amp; audio</a></li>
+          <li><a href="/index.html#text">Text &amp; code</a></li>
+          <li><a href="/index.html#util">Everyday tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The site</h3>
+        <ul>
+          <li><a href="/all-tools.html">All tools</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Fine print</h3>
+        <ul>
+          <li><a href="/privacy.html">Privacy policy</a></li>
+          <li><a href="/terms.html">Terms of use</a></li>
+          <li><a href="/about.html#how">How it works</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">
+      <p>© <span data-year>2026</span> DigitPDF · built in Kasur, Pakistan, in a room with one desk.</p>
+      <span class="running"><i aria-hidden="true"></i><b data-count>0</b>&nbsp;files handled on this device</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="/js/core.js" defer></script>
+<script src="/js/tools/word-counter.js" defer></script>
+</body>
+</html>
