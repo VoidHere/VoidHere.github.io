@@ -2,7 +2,8 @@
 
 Offline, browser-based file tools — 69 of them — served as a plain static site.
 No servers, no uploads, no CDN: every conversion happens inside the visitor's
-browser. Live at **https://digitpdf.io**.
+browser. Live at **https://voidhere.github.io** (the digitpdf.io domain can be
+attached later — see Deploy below).
 
 ## What's here
 
@@ -53,14 +54,28 @@ python build/serve.py           # http://127.0.0.1:8123, cache disabled
 
 ## Deploy
 
-Upload everything **except** `build/` and `test-assets/`:
+Live on **GitHub Pages** from the repo `VoidHere/VoidHere.github.io` (the repo
+name matters — it makes the site serve from the domain root, which the absolute
+paths `/css/…`, `/vendor/…` require).
 
-```
-*.html  css/  js/  vendor/  favicon.svg  robots.txt  sitemap.xml
+```powershell
+python build/generate.py        # after editing defs/pages
+git add -A; git commit -m "…"   # commit the regenerated files
+git push                        # Pages rebuilds automatically in ~1 minute
 ```
 
-That's it — any static host works. The site is fully offline-capable apart
-from fonts being served from the same directory.
+`SITE_URL` at the top of `build/generate.py` holds the public address used by
+canonical tags, Open Graph and the sitemap. When the site moves to digitpdf.io:
+
+1. Buy the domain, then add a `CNAME` file (contents: `digitpdf.io`) and re-run
+   the deploy; set the custom domain in the repo's Pages settings.
+2. At the registrar: four `A` records for `@` → `185.199.108.153`,
+   `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, and `www` → CNAME
+   `voidhere.github.io`. Tick "Enforce HTTPS" once the certificate is issued.
+3. Change `SITE_URL` to `https://digitpdf.io`, regenerate, commit, push.
+
+Any other static host works too — upload everything except `build/` and
+`test-assets/`.
 
 ## Notes
 
