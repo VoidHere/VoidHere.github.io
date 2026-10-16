@@ -22,7 +22,7 @@ BUILD = ROOT / "build"
 
 # The public address of the site. Currently the free GitHub Pages address;
 # change it here (and re-run) when digitpdf.io is attached.
-SITE_URL = "https://voidhere.github.io"
+SITE_URL = "https://digitpdf.pages.dev"
 
 CATS = {
     "pdf":   {"name": "PDF",            "icon": "i-pdf",

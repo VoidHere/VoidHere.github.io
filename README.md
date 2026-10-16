@@ -2,8 +2,9 @@
 
 Offline, browser-based file tools — 69 of them — served as a plain static site.
 No servers, no uploads, no CDN: every conversion happens inside the visitor's
-browser. Live at **https://voidhere.github.io** (the digitpdf.io domain can be
-attached later — see Deploy below).
+browser. Live at **https://digitpdf.pages.dev** (with a mirror on GitHub Pages,
+`https://voidhere.github.io`; a free clean URL, `digitpdf.is-a.dev`, is in
+review — see Deploy below).
 
 ## What's here
 
@@ -33,6 +34,9 @@ digitpdf/
     serve.py          local dev server (no-store; has a dev-only /__save)
     check-site.py     verifies links, offline-ness, script wiring, sitemap
     make-assets.py    builds the small text/zip test fixtures
+    package-cf.sh     builds dist/ for Cloudflare Pages (drops the 31 MB wasm)
+    deploy-cf.ps1     uploads dist/ to Cloudflare Pages (no Node needed)
+    asset-hashes.py   wrangler-compatible asset hashes (needs blake3)
   test-assets/        fixtures used while testing (not deployed)
 ```
 
@@ -54,29 +58,40 @@ python build/serve.py           # http://127.0.0.1:8123, cache disabled
 
 ## Deploy
 
-Live on **GitHub Pages** from the repo `VoidHere/VoidHere.github.io` (the repo
-name matters — it makes the site serve from the domain root, which the absolute
-paths `/css/…`, `/vendor/…` require).
+The site is served from **Cloudflare Pages** at **https://digitpdf.pages.dev**
+(project `digitpdf`, direct upload). GitHub Pages keeps a mirror at
+`https://voidhere.github.io`; pages.dev loads the 31 MB ffmpeg engine from that
+mirror, because Cloudflare Pages rejects files over 25 MiB (see `WASM_ORIGIN`
+in `js/core.js`).
 
 ```powershell
-python build/generate.py        # after editing defs/pages
-git add -A; git commit -m "…"   # commit the regenerated files
-git push                        # Pages rebuilds automatically in ~1 minute
+python build/generate.py                       # after editing defs/pages
+python build/check-site.py                     # sanity check
+git add -A; git commit -m "…"; git push        # GitHub Pages mirror rebuilds
+
+& 'F:\PortableGit\bin\bash.exe' -c "bash build/package-cf.sh"   # builds dist/
+powershell -File build\deploy-cf.ps1                            # deploys dist/
 ```
 
-URLs are extensionless (`/merge-pdf`): GitHub Pages serves `merge-pdf.html`
-for those paths, and every internal link, canonical tag and sitemap entry uses
-the clean form. No redirects or server config needed.
+`build/deploy-cf.ps1` talks to Cloudflare's own upload API — no Node or wrangler
+needed. It requests an upload token, computes wrangler-compatible asset hashes
+(`build/asset-hashes.py`, blake3 of base64 content + extension), uploads only
+the assets the store is missing, then creates the production deployment. It
+needs the API token in `test-assets/cf_token.txt` (gitignored) or
+`$env:CLOUDFLARE_API_TOKEN`, plus python with blake3 available
+(`python -m pip install --target test-assets/pylib blake3`).
+
+Pushing to `main` also triggers `.github/workflows/deploy-pages.yml`, which
+packages and deploys the same way with `wrangler-action` on Cloudflare's
+runners.
 
 `SITE_URL` at the top of `build/generate.py` holds the public address used by
-canonical tags, Open Graph and the sitemap. When the site moves to digitpdf.io:
-
-1. Buy the domain, then add a `CNAME` file (contents: `digitpdf.io`) and re-run
-   the deploy; set the custom domain in the repo's Pages settings.
-2. At the registrar: four `A` records for `@` → `185.199.108.153`,
-   `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, and `www` → CNAME
-   `voidhere.github.io`. Tick "Enforce HTTPS" once the certificate is issued.
-3. Change `SITE_URL` to `https://digitpdf.io`, regenerate, commit, push.
+canonical tags, Open Graph and the sitemap. To attach a custom domain later
+(e.g. the free `digitpdf.is-a.dev` — requested via github.com/is-a-dev/register
+PR #56913, or a purchased `digitpdf.io`): add the domain to the Pages project
+(`POST /accounts/<id>/pages/projects/digitpdf/domains`), point a CNAME at
+`digitpdf.pages.dev` with the DNS provider, then set `SITE_URL`, regenerate,
+commit, push, and re-run the deploy.
 
 Any other static host works too — upload everything except `build/` and
 `test-assets/`.
