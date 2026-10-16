@@ -34,7 +34,8 @@ def check_page(name):
     path = os.path.join(ROOT, name)
     src = open(path, encoding="utf-8").read()
 
-    # resource references (src= and link/script href=)
+    # resource references (src= and link/script href=), clean-URL aware:
+    # an extensionless target resolves to the matching .html file on disk
     refs = re.findall(r'(?:href|src)="([^"]+)"', src)
     for ref in refs:
         if ref.startswith(("http://", "https://", "mailto:", "data:", "//", "#")):
@@ -42,9 +43,18 @@ def check_page(name):
         target = ref.split("#")[0].split("?")[0]
         if not target:
             continue
-        disk = os.path.join(ROOT, target.lstrip("/"))
+        if target == "/":
+            disk = os.path.join(ROOT, "index.html")
+        else:
+            disk = os.path.join(ROOT, target.lstrip("/"))
+            if not os.path.exists(disk) and "." not in os.path.basename(target):
+                disk = disk + ".html"
         if not os.path.exists(disk):
             problems.append(f"{name}: missing target {ref}")
+
+    # clean-URL guard: internal links must not carry a .html suffix
+    for m in re.findall(r'href="(/[^"#?]*\.html)(?:[#?]|")', src):
+        problems.append(f"{name}: .html link not cleaned: {m}")
 
     # offline check: external URLs may only be the site's own address
     for u in re.findall(r'(?:href|src)="(https?://[^"]+)"', src):
@@ -79,7 +89,7 @@ if "sitemap.xml" not in robots:
 sitemap = open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8").read()
 locs = re.findall(r"<loc>([^<]+)</loc>", sitemap)
 for page in SITE_PAGES[:-1] + [s + ".html" for s in TOOL_SLUGS]:
-    url = f"{SITE_URL}/" if page == "index.html" else f"{SITE_URL}/{page}"
+    url = f"{SITE_URL}/" if page == "index.html" else f"{SITE_URL}/{page[:-5]}"
     if url not in locs:
         problems.append(f"sitemap.xml: missing {url}")
 

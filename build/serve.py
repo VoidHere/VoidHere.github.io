@@ -8,6 +8,26 @@ os.chdir(ROOT)
 
 
 class H(http.server.SimpleHTTPRequestHandler):
+    def _resolve_clean(self):
+        # production (GitHub Pages) serves /merge-pdf from merge-pdf.html;
+        # mirror that locally so preview matches the live URL scheme
+        path, _, query = self.path.partition("?")
+        if not path or path.endswith("/"):
+            return
+        if "." in os.path.basename(path):
+            return
+        disk = self.translate_path(path)
+        if not os.path.exists(disk) and os.path.isfile(disk + ".html"):
+            self.path = path + ".html" + (("?" + query) if query else "")
+
+    def do_GET(self):
+        self._resolve_clean()
+        super().do_GET()
+
+    def do_HEAD(self):
+        self._resolve_clean()
+        super().do_HEAD()
+
     def end_headers(self):
         self.send_header("Cache-Control", "no-store, max-age=0")
         super().end_headers()

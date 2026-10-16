@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hash Generator — free, private, in your browser | DigitPDF</title>
 <meta name="description" content="Compute SHA-1, SHA-256, SHA-384 and SHA-512 hashes for text or files, in your browser. Verify downloads without uploading them.">
-<link rel="canonical" href="https://voidhere.github.io/hash-generator.html">
+<link rel="canonical" href="https://voidhere.github.io/hash-generator">
 <meta property="og:site_name" content="DigitPDF">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hash Generator — DigitPDF">
 <meta property="og:description" content="Compute SHA-1, SHA-256, SHA-384 and SHA-512 hashes for text or files, in your browser. Verify downloads without uploading them.">
-<meta property="og:url" content="https://voidhere.github.io/hash-generator.html">
+<meta property="og:url" content="https://voidhere.github.io/hash-generator">
 <meta property="og:image" content="https://voidhere.github.io/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -26,22 +26,22 @@
 <link rel="preload" href="/vendor/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/vendor/fonts/fonts.css">
 <link rel="stylesheet" href="/css/style.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "DigitPDF Hash Generator", "url": "https://voidhere.github.io/hash-generator.html", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Compute SHA-1, SHA-256, SHA-384 and SHA-512 hashes for text or files, in your browser. Verify downloads without uploading them."}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://voidhere.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Text & code", "item": "https://voidhere.github.io/index.html#text"}, {"@type": "ListItem", "position": 3, "name": "Hash Generator"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why no MD5?", "acceptedAnswer": {"@type": "Answer", "text": "Browsers no longer expose it for good reason — it's broken for security use. If you need MD5 to match an old checksum, say so via the contact page."}}, {"@type": "Question", "name": "Is a hash the same as encryption?", "acceptedAnswer": {"@type": "Answer", "text": "No — hashing is one-way by design. You can't get the file back from its hash; you can only check that another copy matches."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "DigitPDF Hash Generator", "url": "https://voidhere.github.io/hash-generator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Compute SHA-1, SHA-256, SHA-384 and SHA-512 hashes for text or files, in your browser. Verify downloads without uploading them."}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://voidhere.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Text & code", "item": "https://voidhere.github.io/#text"}, {"@type": "ListItem", "position": 3, "name": "Hash Generator"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why no MD5?", "acceptedAnswer": {"@type": "Answer", "text": "Browsers no longer expose it for good reason — it's broken for security use. If you need MD5 to match an old checksum, say so via the contact page."}}, {"@type": "Question", "name": "Is a hash the same as encryption?", "acceptedAnswer": {"@type": "Answer", "text": "No — hashing is one-way by design. You can't get the file back from its hash; you can only check that another copy matches."}}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#app">Skip to the tool</a>
 <header class="site-header">
   <div class="wrap header-in">
-    <a class="brand" href="/index.html" aria-label="DigitPDF home">
+    <a class="brand" href="/" aria-label="DigitPDF home">
       <span class="brand__mark" aria-hidden="true">✱</span>
       <span class="brand__text">digitpdf<span class="brand__sub">file tools · on your device</span></span>
     </a>
     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button>
     <nav class="nav" aria-label="Main">
-      <a href="/index.html#toolbox">Toolbox</a>
-      <a href="/all-tools.html">All 69 tools</a>
-      <a href="/about.html">About</a>
-      <a href="/faq.html">FAQ</a>
+      <a href="/#toolbox">Toolbox</a>
+      <a href="/all-tools">All 69 tools</a>
+      <a href="/about">About</a>
+      <a href="/faq">FAQ</a>
       <button class="theme-btn" type="button" aria-label="Switch between light and dark theme">
         <svg class="ic i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
         <svg class="ic i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
@@ -52,8 +52,8 @@
 
 <main class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb">
-    <a href="/index.html">Home</a><span class="sep">/</span>
-    <a href="/index.html#text">Text &amp; code</a><span class="sep">/</span>
+    <a href="/">Home</a><span class="sep">/</span>
+    <a href="/#text">Text &amp; code</a><span class="sep">/</span>
     <span aria-current="page">Hash Generator</span>
   </nav>
 
@@ -103,17 +103,17 @@
   <section class="section" id="related">
     <h2>Do more with it</h2>
     <p class="cat-dek">Tools that pick up where this one leaves off.</p>
-    <div class="tgrid"><a class="tcard" href="/base64-text.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg></span><span class="tcard__t">Base64 Encode / Decode</span><span class="tcard__d">Text to Base64 and back, with proper UTF-8 handling so emoji don&#x27;t come out as…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-<a class="tcard" href="/exif-remover.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span><span class="tcard__t">Remove EXIF Data</span><span class="tcard__d">One click between a photo and the internet.</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-<a class="tcard" href="/json-formatter.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg></span><span class="tcard__t">JSON Formatter</span><span class="tcard__d">Paste messy JSON, get it neat — with a precise error message and line number…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-<a class="tcard" href="/csv-to-json.html"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg></span><span class="tcard__t">CSV to JSON</span><span class="tcard__d">Headers become keys, rows become objects — with a header toggle for files that…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></div>
+    <div class="tgrid"><a class="tcard" href="/base64-text"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg></span><span class="tcard__t">Base64 Encode / Decode</span><span class="tcard__d">Text to Base64 and back, with proper UTF-8 handling so emoji don&#x27;t come out as…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+<a class="tcard" href="/exif-remover"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span><span class="tcard__t">Remove EXIF Data</span><span class="tcard__d">One click between a photo and the internet.</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+<a class="tcard" href="/json-formatter"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg></span><span class="tcard__t">JSON Formatter</span><span class="tcard__d">Paste messy JSON, get it neat — with a precise error message and line number…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+<a class="tcard" href="/csv-to-json"><span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg></span><span class="tcard__t">CSV to JSON</span><span class="tcard__d">Headers become keys, rows become objects — with a header toggle for files that…</span><span class="tcard__go"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span></a></div>
   </section>
 </main>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a class="brand" href="/index.html" style="margin-bottom:14px">
+        <a class="brand" href="/" style="margin-bottom:14px">
           <span class="brand__mark" aria-hidden="true">✱</span>
           <span class="brand__text">digitpdf</span>
         </a>
@@ -124,28 +124,28 @@
       <div>
         <h3>The toolbox</h3>
         <ul>
-          <li><a href="/index.html#pdf">PDF tools</a></li>
-          <li><a href="/index.html#image">Image tools</a></li>
-          <li><a href="/index.html#media">Video &amp; audio</a></li>
-          <li><a href="/index.html#text">Text &amp; code</a></li>
-          <li><a href="/index.html#util">Everyday tools</a></li>
+          <li><a href="/#pdf">PDF tools</a></li>
+          <li><a href="/#image">Image tools</a></li>
+          <li><a href="/#media">Video &amp; audio</a></li>
+          <li><a href="/#text">Text &amp; code</a></li>
+          <li><a href="/#util">Everyday tools</a></li>
         </ul>
       </div>
       <div>
         <h3>The site</h3>
         <ul>
-          <li><a href="/all-tools.html">All tools</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/all-tools">All tools</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
       <div>
         <h3>Fine print</h3>
         <ul>
-          <li><a href="/privacy.html">Privacy policy</a></li>
-          <li><a href="/terms.html">Terms of use</a></li>
-          <li><a href="/about.html#how">How it works</a></li>
+          <li><a href="/privacy">Privacy policy</a></li>
+          <li><a href="/terms">Terms of use</a></li>
+          <li><a href="/about#how">How it works</a></li>
         </ul>
       </div>
     </div>

@@ -66,7 +66,7 @@ def card(t: dict, with_name: bool = False) -> str:
         text = first if len(first) <= 84 else first[:81].rsplit(" ", 1)[0] + "…"
     name_attr = f' data-name="{esc(" ".join(filter(None, [t["title"], t["slug"], t.get("meta", ""), text])))}"' if with_name else ""
     return (
-        f'<a class="tcard" href="/{t["slug"]}.html"{name_attr}>'
+        f'<a class="tcard" href="/{t["slug"]}"{name_attr}>'
         f'<span class="tcard__ico"><svg class="ic" aria-hidden="true"><use href="#{cat["icon"]}"/></svg></span>'
         f'<span class="tcard__t">{esc(t["title"])}</span>'
         f'<span class="tcard__d">{esc(text)}</span>'
@@ -116,7 +116,7 @@ def render_tool(t: dict, slugs: dict, tpl: str, header: str, footer: str, count:
             {
                 "@type": "SoftwareApplication",
                 "name": f"DigitPDF {t['title']}",
-                "url": f"{SITE_URL}/{t['slug']}.html",
+                "url": f"{SITE_URL}/{t['slug']}",
                 "applicationCategory": "UtilitiesApplication",
                 "operatingSystem": "Any",
                 "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
@@ -127,7 +127,7 @@ def render_tool(t: dict, slugs: dict, tpl: str, header: str, footer: str, count:
                 "itemListElement": [
                     {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
                     {"@type": "ListItem", "position": 2, "name": CATS[t["cat"]]["name"].replace("&amp;", "&"),
-                     "item": f"{SITE_URL}/index.html#{t['cat']}"},
+                     "item": f"{SITE_URL}/#{t['cat']}"},
                     {"@type": "ListItem", "position": 3, "name": t["title"]},
                 ],
             },
@@ -191,7 +191,7 @@ def main():
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
-        loc = f"{SITE_URL}/" if u == "index.html" else f"{SITE_URL}/{u}"
+        loc = f"{SITE_URL}/" if u == "index.html" else f"{SITE_URL}/{u[:-5]}"
         sitemap.append(f"  <url><loc>{loc}</loc><lastmod>{today}</lastmod></url>")
     sitemap.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(sitemap), encoding="utf-8")
