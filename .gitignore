@@ -4,3 +4,6 @@ test-assets/
 # build noise
 __pycache__/
 *.pyc
+
+# Cloudflare Pages packaging output (built on their side, never committed)
+dist/

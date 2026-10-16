@@ -442,6 +442,12 @@
   /* ---------- ffmpeg engine (shared, lazy) ---------- */
   let ffEngine = null, ffPending = null;
   const ffCbs = new Set();
+  /* ffmpeg-core.wasm is ~31 MB, over Cloudflare Pages' 25 MiB per-file cap,
+     so on pages.dev it is loaded from the GitHub Pages mirror instead
+     (which serves it with Access-Control-Allow-Origin: * — verified).
+     Everywhere else the engine is same-origin. Keep the mirror URL in sync
+     with SITE_URL if the site ever moves. */
+  const WASM_ORIGIN = /(^|\.)pages\.dev$/.test(location.hostname) ? "https://voidhere.github.io" : "";
   function onFFmpeg(cb) { ffCbs.add(cb); return () => ffCbs.delete(cb); }
   function ffEmit(ev) { ffCbs.forEach(cb => { try { cb(ev); } catch (e) { /* listener error — ignore */ } }); }
   function ffmpeg() {
@@ -452,7 +458,7 @@
         const inst = new FFmpegWASM.FFmpeg();
         inst.on("log", ({ message }) => ffEmit({ type: "log", message }));
         inst.on("progress", (d) => ffEmit({ type: "progress", progress: d && d.progress || 0, time: d && d.time }));
-        await inst.load({ coreURL: "/vendor/ffmpeg-core.js", wasmURL: "/vendor/ffmpeg-core.wasm" });
+        await inst.load({ coreURL: "/vendor/ffmpeg-core.js", wasmURL: WASM_ORIGIN + "/vendor/ffmpeg-core.wasm" });
         /* the wasm side marshals args as C strings, so a JS number arrives as
            an empty string ("-crf 23" → "-crf"). Stringify once, centrally. */
         const rawExec = inst.exec.bind(inst);
