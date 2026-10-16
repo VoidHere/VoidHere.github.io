@@ -3,7 +3,7 @@
 Offline, browser-based file tools — 69 of them — served as a plain static site.
 No servers, no uploads, no CDN: every conversion happens inside the visitor's
 browser. Live at **https://digitpdf.pages.dev** (with a mirror on GitHub Pages,
-`https://voidhere.github.io`; a free clean URL, `digitpdf.is-a.dev`, is in
+`https://voidhere.github.io`; a free clean URL, `digitpdf.js.org`, is in
 review — see Deploy below).
 
 ## What's here
@@ -87,8 +87,8 @@ runners.
 
 `SITE_URL` at the top of `build/generate.py` holds the public address used by
 canonical tags, Open Graph and the sitemap. To attach a custom domain later
-(e.g. the free `digitpdf.is-a.dev` — requested via github.com/is-a-dev/register
-PR #56913, or a purchased `digitpdf.io`): add the domain to the Pages project
+(e.g. the free `digitpdf.js.org` — pull request js-org/js.org#12784, or a
+purchased `digitpdf.io`): add the domain to the Pages project
 (`POST /accounts/<id>/pages/projects/digitpdf/domains`), point a CNAME at
 `digitpdf.pages.dev` with the DNS provider, then set `SITE_URL`, regenerate,
 commit, push, and re-run the deploy.
